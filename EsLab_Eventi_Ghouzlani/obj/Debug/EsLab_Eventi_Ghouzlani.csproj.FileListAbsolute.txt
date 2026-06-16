@@ -9,7 +9,6 @@ C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\ob
 C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\obj\Debug\EsLab_Eventi_Ghouzlani.FrmIscrizioni.resources
 C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\obj\Debug\EsLab_Eventi_Ghouzlani.FrmLogin.resources
 C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\obj\Debug\EsLab_Eventi_Ghouzlani.FrmMainAdmin.resources
-C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\obj\Debug\EsLab_Eventi_Ghouzlani.FrmMainStudente.resources
 C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\obj\Debug\EsLab_Eventi_Ghouzlani.FrmPartecipa.resources
 C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\obj\Debug\EsLab_Eventi_Ghouzlani.FrmUtenti.resources
 C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\obj\Debug\EsLab_Eventi_Ghouzlani.FrmValidaAccessoEvento.resources
@@ -18,3 +17,4 @@ C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\ob
 C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\obj\Debug\EsLab_Eventi_Ghouzlani.csproj.CoreCompileInputs.cache
 C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\obj\Debug\EsLab_Eventi_Ghouzlani.exe
 C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\obj\Debug\EsLab_Eventi_Ghouzlani.pdb
+C:\Users\amirg\OneDrive\Desktop\EsLab_Eventi_Ghouzlani\EsLab_Eventi_Ghouzlani\obj\Debug\EsLab_Eventi_Ghouzlani.FrmMainUtente.resources

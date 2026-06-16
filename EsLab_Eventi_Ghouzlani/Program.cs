@@ -16,7 +16,7 @@ namespace EsLab_Eventi_Ghouzlani
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPartecipa());
+            Application.Run(new FrmLogin());
         }
     }
 }

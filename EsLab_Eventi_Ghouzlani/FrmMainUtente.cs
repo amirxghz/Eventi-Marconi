@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EsLab_Eventi_Ghouzlani
 {
-    public partial class FrmMainStudente : Form
+    public partial class FrmMainUtente : Form
     {
-        public FrmMainStudente()
+        public FrmMainUtente()
         {
             InitializeComponent();
         }

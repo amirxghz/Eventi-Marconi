@@ -29,39 +29,123 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMainAdmin));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnUtenti = new System.Windows.Forms.Button();
-            this.btnClassi = new System.Windows.Forms.Button();
-            this.btnEventi = new System.Windows.Forms.Button();
             this.btnIndirizzi = new System.Windows.Forms.Button();
-            this.btnIscrizioni = new System.Windows.Forms.Button();
+            this.btnClassi = new System.Windows.Forms.Button();
+            this.btnUtenti = new System.Windows.Forms.Button();
             this.btnValida = new System.Windows.Forms.Button();
+            this.btnIscrizioni = new System.Windows.Forms.Button();
             this.btnAttività = new System.Windows.Forms.Button();
+            this.btnEventi = new System.Windows.Forms.Button();
+            this.lblBenvenuto = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnProfilo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblBenvenuto = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // btnIndirizzi
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(66)))), ((int)(((byte)(137)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.btnProfilo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1264, 83);
-            this.panel1.TabIndex = 2;
+            this.btnIndirizzi.BackColor = System.Drawing.Color.White;
+            this.btnIndirizzi.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIndirizzi.Location = new System.Drawing.Point(3, 503);
+            this.btnIndirizzi.Name = "btnIndirizzi";
+            this.btnIndirizzi.Size = new System.Drawing.Size(193, 61);
+            this.btnIndirizzi.TabIndex = 3;
+            this.btnIndirizzi.Text = "🎓Indirizzo";
+            this.btnIndirizzi.UseVisualStyleBackColor = false;
+            this.btnIndirizzi.Click += new System.EventHandler(this.btnIndirizzi_Click);
+            // 
+            // btnClassi
+            // 
+            this.btnClassi.BackColor = System.Drawing.Color.White;
+            this.btnClassi.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClassi.Location = new System.Drawing.Point(3, 436);
+            this.btnClassi.Name = "btnClassi";
+            this.btnClassi.Size = new System.Drawing.Size(193, 61);
+            this.btnClassi.TabIndex = 1;
+            this.btnClassi.Text = "📚Classi";
+            this.btnClassi.UseVisualStyleBackColor = false;
+            this.btnClassi.Click += new System.EventHandler(this.btnClassi_Click);
+            // 
+            // btnUtenti
+            // 
+            this.btnUtenti.BackColor = System.Drawing.Color.White;
+            this.btnUtenti.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUtenti.Location = new System.Drawing.Point(3, 369);
+            this.btnUtenti.Name = "btnUtenti";
+            this.btnUtenti.Size = new System.Drawing.Size(193, 61);
+            this.btnUtenti.TabIndex = 0;
+            this.btnUtenti.Text = "👥Utenti";
+            this.btnUtenti.UseVisualStyleBackColor = false;
+            this.btnUtenti.Click += new System.EventHandler(this.btnUtenti_Click);
+            // 
+            // btnValida
+            // 
+            this.btnValida.BackColor = System.Drawing.Color.White;
+            this.btnValida.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnValida.Location = new System.Drawing.Point(3, 302);
+            this.btnValida.Name = "btnValida";
+            this.btnValida.Size = new System.Drawing.Size(193, 61);
+            this.btnValida.TabIndex = 5;
+            this.btnValida.Text = "🎟️Valida Accesso";
+            this.btnValida.UseVisualStyleBackColor = false;
+            this.btnValida.Click += new System.EventHandler(this.btnValida_Click);
+            // 
+            // btnIscrizioni
+            // 
+            this.btnIscrizioni.BackColor = System.Drawing.Color.White;
+            this.btnIscrizioni.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIscrizioni.Location = new System.Drawing.Point(3, 235);
+            this.btnIscrizioni.Name = "btnIscrizioni";
+            this.btnIscrizioni.Size = new System.Drawing.Size(193, 61);
+            this.btnIscrizioni.TabIndex = 4;
+            this.btnIscrizioni.Text = "🔔Iscrizioni";
+            this.btnIscrizioni.UseVisualStyleBackColor = false;
+            this.btnIscrizioni.Click += new System.EventHandler(this.btnIscrizioni_Click);
+            // 
+            // btnAttività
+            // 
+            this.btnAttività.BackColor = System.Drawing.Color.White;
+            this.btnAttività.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttività.Location = new System.Drawing.Point(3, 168);
+            this.btnAttività.Name = "btnAttività";
+            this.btnAttività.Size = new System.Drawing.Size(193, 61);
+            this.btnAttività.TabIndex = 6;
+            this.btnAttività.Text = "✨Attività";
+            this.btnAttività.UseVisualStyleBackColor = false;
+            this.btnAttività.Click += new System.EventHandler(this.btnAttività_Click);
+            // 
+            // btnEventi
+            // 
+            this.btnEventi.BackColor = System.Drawing.Color.White;
+            this.btnEventi.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEventi.Location = new System.Drawing.Point(3, 101);
+            this.btnEventi.Name = "btnEventi";
+            this.btnEventi.Size = new System.Drawing.Size(193, 61);
+            this.btnEventi.TabIndex = 2;
+            this.btnEventi.Text = "🎉Eventi";
+            this.btnEventi.UseVisualStyleBackColor = false;
+            this.btnEventi.Click += new System.EventHandler(this.btnEventi_Click);
+            // 
+            // lblBenvenuto
+            // 
+            this.lblBenvenuto.Font = new System.Drawing.Font("Helvetica", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBenvenuto.ForeColor = System.Drawing.Color.White;
+            this.lblBenvenuto.Location = new System.Drawing.Point(3, 40);
+            this.lblBenvenuto.Name = "lblBenvenuto";
+            this.lblBenvenuto.Size = new System.Drawing.Size(193, 58);
+            this.lblBenvenuto.TabIndex = 10;
+            this.lblBenvenuto.Text = "Benvenuto, \r\nStudente";
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(66)))), ((int)(((byte)(137)))));
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.lblBenvenuto);
             this.flowLayoutPanel1.Controls.Add(this.btnEventi);
             this.flowLayoutPanel1.Controls.Add(this.btnAttività);
@@ -76,87 +160,23 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(201, 598);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
-            // btnUtenti
+            // panel1
             // 
-            this.btnUtenti.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUtenti.Location = new System.Drawing.Point(3, 329);
-            this.btnUtenti.Name = "btnUtenti";
-            this.btnUtenti.Size = new System.Drawing.Size(193, 61);
-            this.btnUtenti.TabIndex = 0;
-            this.btnUtenti.Text = "👥Utenti";
-            this.btnUtenti.UseVisualStyleBackColor = true;
-            this.btnUtenti.Click += new System.EventHandler(this.btnUtenti_Click);
-            // 
-            // btnClassi
-            // 
-            this.btnClassi.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClassi.Location = new System.Drawing.Point(3, 396);
-            this.btnClassi.Name = "btnClassi";
-            this.btnClassi.Size = new System.Drawing.Size(193, 61);
-            this.btnClassi.TabIndex = 1;
-            this.btnClassi.Text = "📚Classi";
-            this.btnClassi.UseVisualStyleBackColor = true;
-            this.btnClassi.Click += new System.EventHandler(this.btnClassi_Click);
-            // 
-            // btnEventi
-            // 
-            this.btnEventi.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventi.Location = new System.Drawing.Point(3, 61);
-            this.btnEventi.Name = "btnEventi";
-            this.btnEventi.Size = new System.Drawing.Size(193, 61);
-            this.btnEventi.TabIndex = 2;
-            this.btnEventi.Text = "🎉Eventi";
-            this.btnEventi.UseVisualStyleBackColor = true;
-            this.btnEventi.Click += new System.EventHandler(this.btnEventi_Click);
-            // 
-            // btnIndirizzi
-            // 
-            this.btnIndirizzi.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIndirizzi.Location = new System.Drawing.Point(3, 463);
-            this.btnIndirizzi.Name = "btnIndirizzi";
-            this.btnIndirizzi.Size = new System.Drawing.Size(193, 61);
-            this.btnIndirizzi.TabIndex = 3;
-            this.btnIndirizzi.Text = "🎓Indirizzo";
-            this.btnIndirizzi.UseVisualStyleBackColor = true;
-            this.btnIndirizzi.Click += new System.EventHandler(this.btnIndirizzi_Click);
-            // 
-            // btnIscrizioni
-            // 
-            this.btnIscrizioni.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIscrizioni.Location = new System.Drawing.Point(3, 195);
-            this.btnIscrizioni.Name = "btnIscrizioni";
-            this.btnIscrizioni.Size = new System.Drawing.Size(193, 61);
-            this.btnIscrizioni.TabIndex = 4;
-            this.btnIscrizioni.Text = "🔔Iscrizioni";
-            this.btnIscrizioni.UseVisualStyleBackColor = true;
-            this.btnIscrizioni.Click += new System.EventHandler(this.btnIscrizioni_Click);
-            // 
-            // btnValida
-            // 
-            this.btnValida.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnValida.Location = new System.Drawing.Point(3, 262);
-            this.btnValida.Name = "btnValida";
-            this.btnValida.Size = new System.Drawing.Size(193, 61);
-            this.btnValida.TabIndex = 5;
-            this.btnValida.Text = "🎟️Valida Accesso";
-            this.btnValida.UseVisualStyleBackColor = true;
-            this.btnValida.Click += new System.EventHandler(this.btnValida_Click);
-            // 
-            // btnAttività
-            // 
-            this.btnAttività.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttività.Location = new System.Drawing.Point(3, 128);
-            this.btnAttività.Name = "btnAttività";
-            this.btnAttività.Size = new System.Drawing.Size(193, 61);
-            this.btnAttività.TabIndex = 6;
-            this.btnAttività.Text = "✨Attività";
-            this.btnAttività.UseVisualStyleBackColor = true;
-            this.btnAttività.Click += new System.EventHandler(this.btnAttività_Click);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(66)))), ((int)(((byte)(137)))));
+            this.panel1.Controls.Add(this.btnProfilo);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1264, 83);
+            this.panel1.TabIndex = 2;
             // 
             // btnProfilo
             // 
+            this.btnProfilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnProfilo.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfilo.Location = new System.Drawing.Point(1153, 22);
+            this.btnProfilo.Location = new System.Drawing.Point(1144, 22);
             this.btnProfilo.Name = "btnProfilo";
             this.btnProfilo.Size = new System.Drawing.Size(108, 48);
             this.btnProfilo.TabIndex = 7;
@@ -184,16 +204,12 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Eventi Marconi";
             // 
-            // lblBenvenuto
+            // panel2
             // 
-            this.lblBenvenuto.AutoSize = true;
-            this.lblBenvenuto.Font = new System.Drawing.Font("Helvetica", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBenvenuto.ForeColor = System.Drawing.Color.White;
-            this.lblBenvenuto.Location = new System.Drawing.Point(3, 0);
-            this.lblBenvenuto.Name = "lblBenvenuto";
-            this.lblBenvenuto.Size = new System.Drawing.Size(183, 58);
-            this.lblBenvenuto.TabIndex = 10;
-            this.lblBenvenuto.Text = "Benvenuto, \r\nDiego D\'Amico";
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 34);
+            this.panel2.TabIndex = 11;
             // 
             // FrmMainAdmin
             // 
@@ -202,15 +218,16 @@
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Helvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "FrmMainAdmin";
             this.Text = "FrmMain";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -218,18 +235,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button btnUtenti;
-        private System.Windows.Forms.Button btnClassi;
-        private System.Windows.Forms.Button btnEventi;
         private System.Windows.Forms.Button btnIndirizzi;
-        private System.Windows.Forms.Button btnIscrizioni;
+        private System.Windows.Forms.Button btnClassi;
+        private System.Windows.Forms.Button btnUtenti;
         private System.Windows.Forms.Button btnValida;
+        private System.Windows.Forms.Button btnIscrizioni;
         private System.Windows.Forms.Button btnAttività;
+        private System.Windows.Forms.Button btnEventi;
+        private System.Windows.Forms.Label lblBenvenuto;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnProfilo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnProfilo;
-        private System.Windows.Forms.Label lblBenvenuto;
+        private System.Windows.Forms.Panel panel2;
     }
 }

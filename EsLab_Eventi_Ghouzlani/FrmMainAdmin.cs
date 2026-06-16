@@ -22,9 +22,13 @@ namespace EsLab_Eventi_Ghouzlani
         private void SelezionaBottone(Button btn)
         {
             if (btnPrecedente != null && btnPrecedente != btn)
+            {
                 btnPrecedente.BackColor = Color.FromArgb(255, 255, 255);
+                btnPrecedente.ForeColor= Color.FromArgb(0, 0 , 0);
+            }
 
             btn.BackColor = Color.FromArgb(34, 66, 137);
+            btn.ForeColor = Color.FromArgb(255, 255, 255);
             btnPrecedente = btn;
         }
         private void AprireFormMDI(Form nuovaForm, Button btn)

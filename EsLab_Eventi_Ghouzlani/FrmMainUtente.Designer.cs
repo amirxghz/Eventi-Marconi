@@ -1,6 +1,6 @@
 ﻿namespace EsLab_Eventi_Ghouzlani
 {
-    partial class FrmMainStudente
+    partial class FrmMainUtente
     {
         /// <summary>
         /// Required designer variable.
