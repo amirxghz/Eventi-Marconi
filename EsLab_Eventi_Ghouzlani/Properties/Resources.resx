@@ -121,7 +121,13 @@
   <data name="caricaPfp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\caricaPfp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="eventoCarica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eventoCarica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Pfp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pfp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="evento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\evento.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

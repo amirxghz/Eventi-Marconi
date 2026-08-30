@@ -16,5 +16,43 @@ namespace EsLab_Eventi_Ghouzlani
         {
             InitializeComponent();
         }
+        private void FrmClassi_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void btnAggiungi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAnnulla_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVisualizza_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModifica_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnElimina_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbFiltroNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lvClassi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
