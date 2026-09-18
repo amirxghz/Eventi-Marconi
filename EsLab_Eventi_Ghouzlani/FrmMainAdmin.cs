@@ -17,6 +17,10 @@ namespace EsLab_Eventi_Ghouzlani
             InitializeComponent();
         }
 
+        private void FrmMainAdmin_Load(object sender, EventArgs e)
+        {
+            lblBenvenuto.Text = "Benvenuto, \n" + Program.UtenteLoggato.Nome;
+        }
         private Form frmCorrente = null;
         private Button btnPrecedente = null;
         private void SelezionaBottone(Button btn)
@@ -71,6 +75,7 @@ namespace EsLab_Eventi_Ghouzlani
         {
             FrmValidaAccessoEvento frmValidaAccessoEvento = new FrmValidaAccessoEvento();
             AprireFormMDI(frmValidaAccessoEvento, btnValida);
+
         }
 
         private void btnUtenti_Click(object sender, EventArgs e)
@@ -90,5 +95,6 @@ namespace EsLab_Eventi_Ghouzlani
             FrmIndirizzi frmIndirizzi = new FrmIndirizzi();
             AprireFormMDI(frmIndirizzi, btnIndirizzi);
         }
+
     }
 }

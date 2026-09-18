@@ -18,7 +18,7 @@ namespace EsLab_Eventi_Ghouzlani
         private static ClsUtente CreaUtenteDaRiga(DataRow r)
         {
             ClsUtente u = new ClsUtente();
-            u.ID1 = Convert.ToInt32(r["ID"]);
+            u.ID = Convert.ToInt32(r["ID"]);
             u.Nome = r["nome"] == DBNull.Value ? "" : r["nome"].ToString();
             u.Cognome = r["cognome"] == DBNull.Value ? "" : r["cognome"].ToString();
             u.Username = r["username"] == DBNull.Value ? "" : r["username"].ToString();
@@ -29,6 +29,48 @@ namespace EsLab_Eventi_Ghouzlani
             u.Ruolo = r["ruolo"] == DBNull.Value ? ' ' : Convert.ToChar(r["ruolo"]);
             u.ClasseID = r["classeID"] == DBNull.Value ? "" : r["classeID"].ToString();
             return u;
+        }
+
+        internal static void AssicuraAdminDefault(ref MySqlConnection conn, string username, string password, out string errore)
+        {
+            errore = string.Empty;
+
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                errore = "Credenziali admin di default non valide";
+                return;
+            }
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                string queryUtente = "SELECT ID FROM utenti WHERE username=@username";
+                MySqlCommand cmdSel = new MySqlCommand(queryUtente, conn);
+                cmdSel.Parameters.AddWithValue("@username", username.Trim());
+                object res = cmdSel.ExecuteScalar();
+
+                if (res == null || res == DBNull.Value)
+                {
+                    string sql = @"INSERT INTO utenti
+                                (nome, cognome, username, password, matricola,
+                                 rappresentanteClasse, rappresentanteIstituto, ruolo, classeID)
+                           VALUES
+                                ('Admin', '', @username, @password, NULL,
+                                 0, 0, 'A', NULL)";
+                    MySqlCommand cmdIns = new MySqlCommand(sql, conn);
+                    cmdIns.Parameters.AddWithValue("@username", username.Trim());
+                    cmdIns.Parameters.AddWithValue("@password", password.Trim());
+                    cmdIns.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                errore = ex.Message;
+            }
         }
 
         #region CREATE
@@ -57,7 +99,7 @@ namespace EsLab_Eventi_Ghouzlani
                 cmd.Parameters.AddWithValue("@rappresentanteClasse", utente.RappresentanteClasse);
                 cmd.Parameters.AddWithValue("@rappresentanteIstituto", utente.RappresentanteIstituto);
                 cmd.Parameters.AddWithValue("@ruolo", utente.Ruolo);
-                cmd.Parameters.AddWithValue("@classeID", utente.ClasseID ?? "");
+                cmd.Parameters.AddWithValue("@classeID", string.IsNullOrEmpty(utente.ClasseID) ? (object)DBNull.Value : utente.ClasseID);
                 cmd.ExecuteNonQuery();
                 id = cmd.LastInsertedId;
 
@@ -100,7 +142,36 @@ namespace EsLab_Eventi_Ghouzlani
 
             return utenti;
         }
+        internal static ClsUtente GetByMatricola(ref MySqlConnection conn, string matricola, out string errore)
+        {
+            ClsUtente utente = null;
+            errore = string.Empty;
 
+            if (string.IsNullOrEmpty(matricola))
+                return null;
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(SELECT_BASE + " WHERE matricola=@matricola LIMIT 1", conn);
+                da.SelectCommand.Parameters.AddWithValue("@matricola", matricola);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                    utente = CreaUtenteDaRiga(dt.Rows[0]);
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                errore = ex.Message;
+            }
+
+            return utente;
+        }
         internal static ClsUtente GetByID(ref MySqlConnection conn, int id, out string errore)
         {
             ClsUtente utente = null;
@@ -262,7 +333,7 @@ namespace EsLab_Eventi_Ghouzlani
                     cmd.Parameters.AddWithValue("@rappresentanteClasse", utente.RappresentanteClasse);
                     cmd.Parameters.AddWithValue("@rappresentanteIstituto", utente.RappresentanteIstituto);
                     cmd.Parameters.AddWithValue("@ruolo", utente.Ruolo);
-                    cmd.Parameters.AddWithValue("@classeID", utente.ClasseID ?? "");
+                    cmd.Parameters.AddWithValue("@classeID", string.IsNullOrEmpty(utente.ClasseID) ? (object)DBNull.Value : utente.ClasseID);
                     esito = cmd.ExecuteNonQuery();
 
                     conn.Close();

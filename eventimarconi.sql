@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Creato il: Ago 30, 2026 alle 21:12
+-- Creato il: Set 13, 2026 alle 21:54
 -- Versione del server: 8.2.0
 -- Versione PHP: 8.3.0
 
@@ -29,14 +29,27 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `aderire` (
   `IDaderire` int NOT NULL,
+  `codicePartecipazione` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `iscritto` tinyint(1) NOT NULL DEFAULT '0',
-  `autorizzato` tinyint(1) NOT NULL DEFAULT '0',
   `pagato` tinyint(1) DEFAULT NULL,
   `partecipato` tinyint(1) NOT NULL DEFAULT '0',
   `attivitaID` int NOT NULL,
   `classeID` char(3) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `studenteID` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `aderire`
+--
+
+INSERT INTO `aderire` (`IDaderire`, `codicePartecipazione`, `iscritto`, `pagato`, `partecipato`, `attivitaID`, `classeID`, `studenteID`) VALUES
+(1, '', 1, 0, 1, 4, '5BM', 2),
+(2, '', 1, 0, 0, 5, '5BM', 2),
+(3, '', 1, 0, 0, 6, '5BM', 2),
+(4, '', 1, 0, 0, 7, '5BM', 2),
+(5, '', 1, 0, 0, 1, '5BM', 2),
+(6, '', 1, 0, 0, 2, '5BM', 2),
+(7, '', 1, 0, 0, 3, '5BM', 2);
 
 -- --------------------------------------------------------
 
@@ -54,6 +67,19 @@ CREATE TABLE `attivita` (
   `eventoID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dump dei dati per la tabella `attivita`
+--
+
+INSERT INTO `attivita` (`ID`, `titolo`, `testo`, `ordine`, `dalle`, `alle`, `eventoID`) VALUES
+(1, 'donazioni di birre', 'vieni', 1, '08:00:04', '09:00:04', 2),
+(2, 'brindisi', 'evvai', 2, '09:00:00', '10:00:00', 2),
+(3, 'gran bevuta insieme ai prof', '', 3, '10:00:00', '11:00:00', 2),
+(4, 'lezione di nuoto', '', 1, '08:00:02', '10:00:02', 3),
+(5, 'ricreazione', 'pausa dopo la lezione impegnativa', 2, '10:00:00', '10:30:00', 3),
+(6, 'gara di nuoto', 'vediam chi vince', 3, '10:30:00', '11:30:00', 3),
+(7, 'celebrazioni', 'chi ha vinto??', 4, '11:30:00', '13:00:00', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -68,6 +94,16 @@ CREATE TABLE `classi` (
   `indirizzoID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dump dei dati per la tabella `classi`
+--
+
+INSERT INTO `classi` (`sigla`, `aula`, `anno`, `sezione`, `indirizzoID`) VALUES
+('2AM', '1-04', 2, 'AM', 3),
+('3CP', '5-11', 1, 'CP', 2),
+('4DM', '3-02', 4, 'DM', 5),
+('5BM', '2-12', 5, 'BM', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -80,8 +116,17 @@ CREATE TABLE `eventi` (
   `descrizione` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `dal` date NOT NULL,
   `al` date NOT NULL,
+  `prezzo` decimal(10,0) DEFAULT NULL,
   `adminID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `eventi`
+--
+
+INSERT INTO `eventi` (`ID`, `nome`, `descrizione`, `dal`, `al`, `prezzo`, `adminID`) VALUES
+(2, 'festa della birra', 'aura birret', '2026-09-13', '2026-09-13', NULL, 3),
+(3, 'piscina', 'grande assemblea d\'istituto in piscina', '2026-09-25', '2026-09-25', NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -93,6 +138,17 @@ CREATE TABLE `indirizzi` (
   `ID` int NOT NULL,
   `nome` varchar(30) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `indirizzi`
+--
+
+INSERT INTO `indirizzi` (`ID`, `nome`) VALUES
+(1, 'informatica'),
+(2, 'moda'),
+(3, 'meccatronica'),
+(4, 'meccanica'),
+(5, 'elettronica');
 
 -- --------------------------------------------------------
 
@@ -106,12 +162,24 @@ CREATE TABLE `utenti` (
   `cognome` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `username` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
-  `matricola` char(8) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `matricola` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `rappresentanteClasse` tinyint(1) DEFAULT NULL,
   `rappresentanteIstituto` tinyint(1) DEFAULT NULL,
   `ruolo` char(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `classeID` char(3) COLLATE utf8mb4_general_ci NOT NULL
+  `classeID` char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `utenti`
+--
+
+INSERT INTO `utenti` (`ID`, `nome`, `cognome`, `username`, `password`, `matricola`, `rappresentanteClasse`, `rappresentanteIstituto`, `ruolo`, `classeID`) VALUES
+(2, 'Amir', 'Ghouzlani', 'amirxghz', 'Amir0246!gh', 'st10859', 0, 0, 'S', '5BM'),
+(3, 'Admin', '', 'admin', 'admin123', NULL, 0, 0, 'A', NULL),
+(4, 'diego', 'cappelloni', 'diegocap', 'diegocap', 'st24639', 1, 0, 'S', '5BM'),
+(5, 'diego', 'stanziano', 'diegosta', 'diegosta', 'st28608', 1, 1, 'S', '5BM'),
+(6, 'diego', 'd\'amico', 'diegoda', 'diegoda', 'st89592', 0, 0, 'S', '5BM'),
+(7, 'francesco', 'yang', 'yanghi', 'yanhi123', 'st05850', 0, 0, 'A', NULL);
 
 --
 -- Indici per le tabelle scaricate
@@ -171,31 +239,31 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `aderire`
 --
 ALTER TABLE `aderire`
-  MODIFY `IDaderire` int NOT NULL AUTO_INCREMENT;
+  MODIFY `IDaderire` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT per la tabella `attivita`
 --
 ALTER TABLE `attivita`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT per la tabella `eventi`
 --
 ALTER TABLE `eventi`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `indirizzi`
 --
 ALTER TABLE `indirizzi`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Limiti per le tabelle scaricate

@@ -11,7 +11,7 @@ namespace EsLab_Eventi_Ghouzlani
     internal static class ClsEventoBL
     {
         private const string SELECT_BASE =
-            @"SELECT ID, nome, descrizione, dal, al, adminID
+            @"SELECT ID, nome, descrizione, dal, al, prezzo, adminID
               FROM eventi";
 
         private static ClsEvento CreaEventoDaRiga(DataRow r)
@@ -24,6 +24,7 @@ namespace EsLab_Eventi_Ghouzlani
                 e.Dal = Convert.ToDateTime(r["dal"]);
             if (r["al"] != DBNull.Value)
                 e.Al = Convert.ToDateTime(r["al"]);
+            e.Prezzo = r["prezzo"] == DBNull.Value ? 0m : Convert.ToDecimal(r["prezzo"]);
             e.AdminID = r["adminID"] == DBNull.Value ? 0 : Convert.ToInt32(r["adminID"]);
             return e;
         }
@@ -39,13 +40,15 @@ namespace EsLab_Eventi_Ghouzlani
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
 
-                string sql = @"INSERT INTO eventi (nome, descrizione, dal, al, adminID)
-                               VALUES (@nome, @descrizione, @dal, @al, @adminID)";
+                string sql = @"INSERT INTO eventi (nome, descrizione, dal, al, prezzo, adminID)
+                               VALUES (@nome, @descrizione, @dal, @al, @prezzo, @adminID)";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@nome", evento.Nome ?? "");
                 cmd.Parameters.AddWithValue("@descrizione", evento.Descrizione ?? "");
                 cmd.Parameters.AddWithValue("@dal", evento.Dal);
                 cmd.Parameters.AddWithValue("@al", evento.Al);
+                // "prezzo" nel DB è nullable: se l'evento è gratuito (0 o negativo) salviamo NULL
+                cmd.Parameters.AddWithValue("@prezzo", evento.Prezzo > 0 ? (object)evento.Prezzo : DBNull.Value);
                 cmd.Parameters.AddWithValue("@adminID", evento.AdminID);
                 cmd.ExecuteNonQuery();
                 id = cmd.LastInsertedId;
@@ -96,7 +99,7 @@ namespace EsLab_Eventi_Ghouzlani
             errore = string.Empty;
 
             if (id <= 0)
-                errore = "ID non valido"; 
+                errore = "ID non valido";
             else
             {
                 try
@@ -128,7 +131,7 @@ namespace EsLab_Eventi_Ghouzlani
             errore = string.Empty;
 
             if (adminID <= 0)
-                errore = "AdminID non valido"; 
+                errore = "AdminID non valido";
             else
             {
                 try
@@ -205,6 +208,7 @@ namespace EsLab_Eventi_Ghouzlani
                                     descrizione=@descrizione,
                                     dal=@dal,
                                     al=@al,
+                                    prezzo=@prezzo,
                                     adminID=@adminID
                                 WHERE ID=@id";
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -213,6 +217,7 @@ namespace EsLab_Eventi_Ghouzlani
                     cmd.Parameters.AddWithValue("@descrizione", evento.Descrizione ?? "");
                     cmd.Parameters.AddWithValue("@dal", evento.Dal);
                     cmd.Parameters.AddWithValue("@al", evento.Al);
+                    cmd.Parameters.AddWithValue("@prezzo", evento.Prezzo > 0 ? (object)evento.Prezzo : DBNull.Value);
                     cmd.Parameters.AddWithValue("@adminID", evento.AdminID);
                     esito = cmd.ExecuteNonQuery();
 

@@ -38,11 +38,12 @@
             this.btnEventi = new System.Windows.Forms.Button();
             this.lblBenvenuto = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnProfilo = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -52,7 +53,7 @@
             // 
             this.btnIndirizzi.BackColor = System.Drawing.Color.White;
             this.btnIndirizzi.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIndirizzi.Location = new System.Drawing.Point(3, 503);
+            this.btnIndirizzi.Location = new System.Drawing.Point(3, 384);
             this.btnIndirizzi.Name = "btnIndirizzi";
             this.btnIndirizzi.Size = new System.Drawing.Size(193, 61);
             this.btnIndirizzi.TabIndex = 3;
@@ -64,7 +65,7 @@
             // 
             this.btnClassi.BackColor = System.Drawing.Color.White;
             this.btnClassi.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClassi.Location = new System.Drawing.Point(3, 436);
+            this.btnClassi.Location = new System.Drawing.Point(3, 451);
             this.btnClassi.Name = "btnClassi";
             this.btnClassi.Size = new System.Drawing.Size(193, 61);
             this.btnClassi.TabIndex = 1;
@@ -76,7 +77,7 @@
             // 
             this.btnUtenti.BackColor = System.Drawing.Color.White;
             this.btnUtenti.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUtenti.Location = new System.Drawing.Point(3, 369);
+            this.btnUtenti.Location = new System.Drawing.Point(3, 518);
             this.btnUtenti.Name = "btnUtenti";
             this.btnUtenti.Size = new System.Drawing.Size(193, 61);
             this.btnUtenti.TabIndex = 0;
@@ -88,7 +89,7 @@
             // 
             this.btnValida.BackColor = System.Drawing.Color.White;
             this.btnValida.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnValida.Location = new System.Drawing.Point(3, 302);
+            this.btnValida.Location = new System.Drawing.Point(3, 294);
             this.btnValida.Name = "btnValida";
             this.btnValida.Size = new System.Drawing.Size(193, 61);
             this.btnValida.TabIndex = 5;
@@ -100,7 +101,7 @@
             // 
             this.btnIscrizioni.BackColor = System.Drawing.Color.White;
             this.btnIscrizioni.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIscrizioni.Location = new System.Drawing.Point(3, 235);
+            this.btnIscrizioni.Location = new System.Drawing.Point(3, 227);
             this.btnIscrizioni.Name = "btnIscrizioni";
             this.btnIscrizioni.Size = new System.Drawing.Size(193, 61);
             this.btnIscrizioni.TabIndex = 4;
@@ -112,7 +113,7 @@
             // 
             this.btnAttività.BackColor = System.Drawing.Color.White;
             this.btnAttività.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttività.Location = new System.Drawing.Point(3, 168);
+            this.btnAttività.Location = new System.Drawing.Point(3, 160);
             this.btnAttività.Name = "btnAttività";
             this.btnAttività.Size = new System.Drawing.Size(193, 61);
             this.btnAttività.TabIndex = 6;
@@ -124,7 +125,7 @@
             // 
             this.btnEventi.BackColor = System.Drawing.Color.White;
             this.btnEventi.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventi.Location = new System.Drawing.Point(3, 101);
+            this.btnEventi.Location = new System.Drawing.Point(3, 93);
             this.btnEventi.Name = "btnEventi";
             this.btnEventi.Size = new System.Drawing.Size(193, 61);
             this.btnEventi.TabIndex = 2;
@@ -136,7 +137,7 @@
             // 
             this.lblBenvenuto.Font = new System.Drawing.Font("Helvetica", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBenvenuto.ForeColor = System.Drawing.Color.White;
-            this.lblBenvenuto.Location = new System.Drawing.Point(3, 40);
+            this.lblBenvenuto.Location = new System.Drawing.Point(3, 0);
             this.lblBenvenuto.Name = "lblBenvenuto";
             this.lblBenvenuto.Size = new System.Drawing.Size(193, 58);
             this.lblBenvenuto.TabIndex = 10;
@@ -145,53 +146,54 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(66)))), ((int)(((byte)(137)))));
-            this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.lblBenvenuto);
+            this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.btnEventi);
             this.flowLayoutPanel1.Controls.Add(this.btnAttività);
             this.flowLayoutPanel1.Controls.Add(this.btnIscrizioni);
             this.flowLayoutPanel1.Controls.Add(this.btnValida);
-            this.flowLayoutPanel1.Controls.Add(this.btnUtenti);
-            this.flowLayoutPanel1.Controls.Add(this.btnClassi);
+            this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.btnIndirizzi);
+            this.flowLayoutPanel1.Controls.Add(this.btnClassi);
+            this.flowLayoutPanel1.Controls.Add(this.btnUtenti);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 83);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(201, 598);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(3, 61);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 26);
+            this.panel3.TabIndex = 12;
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(3, 361);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(200, 17);
+            this.panel4.TabIndex = 13;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(12, 83);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 34);
+            this.panel2.TabIndex = 11;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(66)))), ((int)(((byte)(137)))));
-            this.panel1.Controls.Add(this.btnProfilo);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1264, 83);
             this.panel1.TabIndex = 2;
-            // 
-            // btnProfilo
-            // 
-            this.btnProfilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProfilo.Font = new System.Drawing.Font("Helvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfilo.Location = new System.Drawing.Point(1144, 22);
-            this.btnProfilo.Name = "btnProfilo";
-            this.btnProfilo.Size = new System.Drawing.Size(108, 48);
-            this.btnProfilo.TabIndex = 7;
-            this.btnProfilo.Text = "👤Profilo";
-            this.btnProfilo.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(79, 74);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -204,12 +206,15 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Eventi Marconi";
             // 
-            // panel2
+            // pictureBox1
             // 
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 34);
-            this.panel2.TabIndex = 11;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(79, 74);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmMainAdmin
             // 
@@ -225,6 +230,7 @@
             this.Name = "FrmMainAdmin";
             this.Text = "FrmMain";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmMainAdmin_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -245,9 +251,10 @@
         private System.Windows.Forms.Label lblBenvenuto;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnProfilo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }

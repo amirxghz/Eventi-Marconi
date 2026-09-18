@@ -8,7 +8,7 @@ namespace EsLab_Eventi_Ghouzlani
 {
     public class ClsUtente
     {
-        int ID;
+        int Id;
         string nome;
         string cognome;
         string username;
@@ -19,7 +19,7 @@ namespace EsLab_Eventi_Ghouzlani
         char ruolo;
         string classeID;
 
-        public int ID1 { get => ID; set => ID = value; }
+        public int ID { get => Id; set => Id = value; }
         public string Nome { get => nome; set => nome = value; }
         public string Cognome { get => cognome; set => cognome = value; }
         public string Username { get => username; set => username = value; }

@@ -13,6 +13,7 @@ namespace EsLab_Eventi_Ghouzlani
         string descrizione;
         DateTime dal;
         DateTime al;
+        decimal prezzo;
         int adminID;
 
         public int ID1 { get => ID; set => ID = value; }
@@ -21,6 +22,7 @@ namespace EsLab_Eventi_Ghouzlani
         public DateTime Dal { get => dal; set => dal = value; }
         public DateTime Al { get => al; set => al = value; }
         public int AdminID { get => adminID; set => adminID = value; }
+        public decimal Prezzo { get => prezzo; set => prezzo = value; }
 
         public ClsEvento()
         {

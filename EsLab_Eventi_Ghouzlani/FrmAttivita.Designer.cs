@@ -29,15 +29,18 @@
         private void InitializeComponent()
         {
             this.pnlDetails = new System.Windows.Forms.Panel();
+            this.cbEvento = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblEvento = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpAlle = new System.Windows.Forms.DateTimePicker();
             this.rtbDescrizione = new System.Windows.Forms.RichTextBox();
             this.lblSinossi = new System.Windows.Forms.Label();
             this.lblIconSinossi = new System.Windows.Forms.Label();
             this.lblDataProduzione = new System.Windows.Forms.Label();
             this.lblIconDataProduzione = new System.Windows.Forms.Label();
-            this.dtpDataProduzione = new System.Windows.Forms.DateTimePicker();
+            this.dtpDalle = new System.Windows.Forms.DateTimePicker();
             this.tbTitolo = new System.Windows.Forms.TextBox();
             this.lblIconDataProduzione2 = new System.Windows.Forms.Label();
             this.lblTitolo2 = new System.Windows.Forms.Label();
@@ -47,31 +50,34 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblNumRecordTrovati = new System.Windows.Forms.Label();
             this.lvAttività = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblIconEdizione = new System.Windows.Forms.Label();
-            this.tbFiltroNome = new System.Windows.Forms.TextBox();
+            this.tbFiltro = new System.Windows.Forms.TextBox();
             this.lblCercaPerTitolo = new System.Windows.Forms.Label();
             this.btnVisualizza = new System.Windows.Forms.Button();
             this.btnElimina = new System.Windows.Forms.Button();
             this.btnModifica = new System.Windows.Forms.Button();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlDetails.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
             // 
+            this.pnlDetails.Controls.Add(this.cbEvento);
+            this.pnlDetails.Controls.Add(this.label3);
+            this.pnlDetails.Controls.Add(this.lblEvento);
             this.pnlDetails.Controls.Add(this.label1);
             this.pnlDetails.Controls.Add(this.label2);
-            this.pnlDetails.Controls.Add(this.dateTimePicker1);
+            this.pnlDetails.Controls.Add(this.dtpAlle);
             this.pnlDetails.Controls.Add(this.rtbDescrizione);
             this.pnlDetails.Controls.Add(this.lblSinossi);
             this.pnlDetails.Controls.Add(this.lblIconSinossi);
             this.pnlDetails.Controls.Add(this.lblDataProduzione);
             this.pnlDetails.Controls.Add(this.lblIconDataProduzione);
-            this.pnlDetails.Controls.Add(this.dtpDataProduzione);
+            this.pnlDetails.Controls.Add(this.dtpDalle);
             this.pnlDetails.Controls.Add(this.tbTitolo);
             this.pnlDetails.Controls.Add(this.lblIconDataProduzione2);
             this.pnlDetails.Controls.Add(this.lblTitolo2);
@@ -85,12 +91,44 @@
             this.pnlDetails.Size = new System.Drawing.Size(510, 662);
             this.pnlDetails.TabIndex = 97;
             // 
+            // cbEvento
+            // 
+            this.cbEvento.FormattingEnabled = true;
+            this.cbEvento.Location = new System.Drawing.Point(54, 129);
+            this.cbEvento.Name = "cbEvento";
+            this.cbEvento.Size = new System.Drawing.Size(369, 30);
+            this.cbEvento.TabIndex = 1;
+            this.cbEvento.SelectedIndexChanged += new System.EventHandler(this.CbEvento_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(22, 132);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 25);
+            this.label3.TabIndex = 281;
+            this.label3.Text = "🪪";
+            // 
+            // lblEvento
+            // 
+            this.lblEvento.AutoSize = true;
+            this.lblEvento.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEvento.ForeColor = System.Drawing.Color.Gray;
+            this.lblEvento.Location = new System.Drawing.Point(23, 103);
+            this.lblEvento.Name = "lblEvento";
+            this.lblEvento.Size = new System.Drawing.Size(78, 23);
+            this.lblEvento.TabIndex = 279;
+            this.lblEvento.Text = "Evento*";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(232, 175);
+            this.label1.Location = new System.Drawing.Point(232, 237);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 23);
             this.label1.TabIndex = 277;
@@ -102,28 +140,29 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(231, 204);
+            this.label2.Location = new System.Drawing.Point(231, 266);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 25);
             this.label2.TabIndex = 278;
             this.label2.Text = "🗓️";
             // 
-            // dateTimePicker1
+            // dtpAlle
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(271, 204);
-            this.dateTimePicker1.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(156, 30);
-            this.dateTimePicker1.TabIndex = 276;
+            this.dtpAlle.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpAlle.Location = new System.Drawing.Point(271, 266);
+            this.dtpAlle.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dtpAlle.Name = "dtpAlle";
+            this.dtpAlle.Size = new System.Drawing.Size(156, 30);
+            this.dtpAlle.TabIndex = 4;
+            this.dtpAlle.Value = new System.DateTime(2026, 9, 14, 9, 0, 0, 0);
             // 
             // rtbDescrizione
             // 
             this.rtbDescrizione.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbDescrizione.Location = new System.Drawing.Point(66, 281);
+            this.rtbDescrizione.Location = new System.Drawing.Point(66, 343);
             this.rtbDescrizione.Name = "rtbDescrizione";
             this.rtbDescrizione.Size = new System.Drawing.Size(365, 225);
-            this.rtbDescrizione.TabIndex = 237;
+            this.rtbDescrizione.TabIndex = 5;
             this.rtbDescrizione.Text = "";
             // 
             // lblSinossi
@@ -131,7 +170,7 @@
             this.lblSinossi.AutoSize = true;
             this.lblSinossi.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSinossi.ForeColor = System.Drawing.Color.Gray;
-            this.lblSinossi.Location = new System.Drawing.Point(31, 255);
+            this.lblSinossi.Location = new System.Drawing.Point(31, 317);
             this.lblSinossi.Name = "lblSinossi";
             this.lblSinossi.Size = new System.Drawing.Size(57, 23);
             this.lblSinossi.TabIndex = 248;
@@ -143,7 +182,7 @@
             this.lblIconSinossi.BackColor = System.Drawing.Color.Transparent;
             this.lblIconSinossi.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIconSinossi.ForeColor = System.Drawing.Color.Black;
-            this.lblIconSinossi.Location = new System.Drawing.Point(30, 284);
+            this.lblIconSinossi.Location = new System.Drawing.Point(30, 346);
             this.lblIconSinossi.Name = "lblIconSinossi";
             this.lblIconSinossi.Size = new System.Drawing.Size(34, 25);
             this.lblIconSinossi.TabIndex = 249;
@@ -154,7 +193,7 @@
             this.lblDataProduzione.AutoSize = true;
             this.lblDataProduzione.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataProduzione.ForeColor = System.Drawing.Color.Gray;
-            this.lblDataProduzione.Location = new System.Drawing.Point(27, 176);
+            this.lblDataProduzione.Location = new System.Drawing.Point(27, 238);
             this.lblDataProduzione.Name = "lblDataProduzione";
             this.lblDataProduzione.Size = new System.Drawing.Size(59, 23);
             this.lblDataProduzione.TabIndex = 233;
@@ -166,29 +205,30 @@
             this.lblIconDataProduzione.BackColor = System.Drawing.Color.Transparent;
             this.lblIconDataProduzione.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIconDataProduzione.ForeColor = System.Drawing.Color.Black;
-            this.lblIconDataProduzione.Location = new System.Drawing.Point(26, 205);
+            this.lblIconDataProduzione.Location = new System.Drawing.Point(26, 267);
             this.lblIconDataProduzione.Name = "lblIconDataProduzione";
             this.lblIconDataProduzione.Size = new System.Drawing.Size(34, 25);
             this.lblIconDataProduzione.TabIndex = 234;
             this.lblIconDataProduzione.Text = "🗓️";
             // 
-            // dtpDataProduzione
+            // dtpDalle
             // 
-            this.dtpDataProduzione.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpDataProduzione.Location = new System.Drawing.Point(66, 205);
-            this.dtpDataProduzione.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dtpDataProduzione.Name = "dtpDataProduzione";
-            this.dtpDataProduzione.Size = new System.Drawing.Size(156, 30);
-            this.dtpDataProduzione.TabIndex = 232;
+            this.dtpDalle.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpDalle.Location = new System.Drawing.Point(66, 267);
+            this.dtpDalle.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dtpDalle.Name = "dtpDalle";
+            this.dtpDalle.Size = new System.Drawing.Size(156, 30);
+            this.dtpDalle.TabIndex = 3;
+            this.dtpDalle.Value = new System.DateTime(2026, 9, 14, 8, 0, 0, 0);
             // 
             // tbTitolo
             // 
             this.tbTitolo.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTitolo.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.tbTitolo.Location = new System.Drawing.Point(54, 129);
+            this.tbTitolo.Location = new System.Drawing.Point(54, 191);
             this.tbTitolo.Name = "tbTitolo";
             this.tbTitolo.Size = new System.Drawing.Size(369, 33);
-            this.tbTitolo.TabIndex = 227;
+            this.tbTitolo.TabIndex = 2;
             // 
             // lblIconDataProduzione2
             // 
@@ -196,7 +236,7 @@
             this.lblIconDataProduzione2.BackColor = System.Drawing.Color.Transparent;
             this.lblIconDataProduzione2.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIconDataProduzione2.ForeColor = System.Drawing.Color.Black;
-            this.lblIconDataProduzione2.Location = new System.Drawing.Point(22, 132);
+            this.lblIconDataProduzione2.Location = new System.Drawing.Point(22, 194);
             this.lblIconDataProduzione2.Name = "lblIconDataProduzione2";
             this.lblIconDataProduzione2.Size = new System.Drawing.Size(34, 25);
             this.lblIconDataProduzione2.TabIndex = 228;
@@ -207,7 +247,7 @@
             this.lblTitolo2.AutoSize = true;
             this.lblTitolo2.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitolo2.ForeColor = System.Drawing.Color.Gray;
-            this.lblTitolo2.Location = new System.Drawing.Point(23, 103);
+            this.lblTitolo2.Location = new System.Drawing.Point(23, 165);
             this.lblTitolo2.Name = "lblTitolo2";
             this.lblTitolo2.Size = new System.Drawing.Size(68, 23);
             this.lblTitolo2.TabIndex = 226;
@@ -216,10 +256,10 @@
             // btnAnnulla
             // 
             this.btnAnnulla.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnulla.Location = new System.Drawing.Point(314, 509);
+            this.btnAnnulla.Location = new System.Drawing.Point(314, 571);
             this.btnAnnulla.Name = "btnAnnulla";
             this.btnAnnulla.Size = new System.Drawing.Size(117, 31);
-            this.btnAnnulla.TabIndex = 225;
+            this.btnAnnulla.TabIndex = 7;
             this.btnAnnulla.Text = "↩️ Annulla";
             this.btnAnnulla.UseVisualStyleBackColor = true;
             this.btnAnnulla.Click += new System.EventHandler(this.btnAnnulla_Click);
@@ -227,10 +267,10 @@
             // btnAggiungi
             // 
             this.btnAggiungi.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAggiungi.Location = new System.Drawing.Point(27, 509);
+            this.btnAggiungi.Location = new System.Drawing.Point(27, 571);
             this.btnAggiungi.Name = "btnAggiungi";
             this.btnAggiungi.Size = new System.Drawing.Size(273, 36);
-            this.btnAggiungi.TabIndex = 224;
+            this.btnAggiungi.TabIndex = 6;
             this.btnAggiungi.Text = "➕Aggiungi";
             this.btnAggiungi.UseVisualStyleBackColor = true;
             this.btnAggiungi.Click += new System.EventHandler(this.btnAggiungi_Click);
@@ -250,7 +290,7 @@
             this.panel2.Controls.Add(this.lblNumRecordTrovati);
             this.panel2.Controls.Add(this.lvAttività);
             this.panel2.Controls.Add(this.lblIconEdizione);
-            this.panel2.Controls.Add(this.tbFiltroNome);
+            this.panel2.Controls.Add(this.tbFiltro);
             this.panel2.Controls.Add(this.lblCercaPerTitolo);
             this.panel2.Controls.Add(this.btnVisualizza);
             this.panel2.Controls.Add(this.btnElimina);
@@ -289,10 +329,11 @@
             this.lvAttività.TabIndex = 229;
             this.lvAttività.UseCompatibleStateImageBehavior = false;
             this.lvAttività.View = System.Windows.Forms.View.Details;
-            this.lvAttività.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.lvAttività_ItemDrag);
-            this.lvAttività.DragDrop += new System.Windows.Forms.DragEventHandler(this.lvAttività_DragDrop);
-            this.lvAttività.DragEnter += new System.Windows.Forms.DragEventHandler(this.lvAttività_DragEnter);
-            this.lvAttività.DragOver += new System.Windows.Forms.DragEventHandler(this.lvAttività_DragOver);
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Ordine";
+            this.columnHeader4.Width = 67;
             // 
             // columnHeader1
             // 
@@ -321,14 +362,14 @@
             this.lblIconEdizione.TabIndex = 228;
             this.lblIconEdizione.Text = "🔍";
             // 
-            // tbFiltroNome
+            // tbFiltro
             // 
-            this.tbFiltroNome.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFiltroNome.Location = new System.Drawing.Point(81, 65);
-            this.tbFiltroNome.Name = "tbFiltroNome";
-            this.tbFiltroNome.Size = new System.Drawing.Size(302, 30);
-            this.tbFiltroNome.TabIndex = 227;
-            this.tbFiltroNome.TextChanged += new System.EventHandler(this.tbFiltroNome_TextChanged);
+            this.tbFiltro.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbFiltro.Location = new System.Drawing.Point(81, 65);
+            this.tbFiltro.Name = "tbFiltro";
+            this.tbFiltro.Size = new System.Drawing.Size(287, 30);
+            this.tbFiltro.TabIndex = 227;
+            this.tbFiltro.TextChanged += new System.EventHandler(this.tbFiltroNome_TextChanged);
             // 
             // lblCercaPerTitolo
             // 
@@ -374,11 +415,6 @@
             this.btnModifica.UseVisualStyleBackColor = true;
             this.btnModifica.Click += new System.EventHandler(this.btnModifica_Click);
             // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Ordine";
-            this.columnHeader4.Width = 67;
-            // 
             // FrmAttivita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -390,6 +426,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "FrmAttivita";
             this.Text = "FrmAttivita";
+            this.Load += new System.EventHandler(this.FrmAttivita_Load);
             this.pnlDetails.ResumeLayout(false);
             this.pnlDetails.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -403,13 +440,13 @@
         private System.Windows.Forms.Panel pnlDetails;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpAlle;
         private System.Windows.Forms.RichTextBox rtbDescrizione;
         private System.Windows.Forms.Label lblSinossi;
         private System.Windows.Forms.Label lblIconSinossi;
         private System.Windows.Forms.Label lblDataProduzione;
         private System.Windows.Forms.Label lblIconDataProduzione;
-        private System.Windows.Forms.DateTimePicker dtpDataProduzione;
+        private System.Windows.Forms.DateTimePicker dtpDalle;
         private System.Windows.Forms.TextBox tbTitolo;
         private System.Windows.Forms.Label lblIconDataProduzione2;
         private System.Windows.Forms.Label lblTitolo2;
@@ -424,10 +461,13 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label lblIconEdizione;
-        private System.Windows.Forms.TextBox tbFiltroNome;
+        private System.Windows.Forms.TextBox tbFiltro;
         private System.Windows.Forms.Label lblCercaPerTitolo;
         private System.Windows.Forms.Button btnVisualizza;
         private System.Windows.Forms.Button btnElimina;
         private System.Windows.Forms.Button btnModifica;
+        private System.Windows.Forms.ComboBox cbEvento;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblEvento;
     }
 }

@@ -11,7 +11,7 @@ namespace EsLab_Eventi_Ghouzlani
     internal static class ClsAderireBL
     {
         private const string SELECT_BASE =
-            @"SELECT IDaderire, iscritto, autorizzato, pagato, partecipato,
+            @"SELECT IDaderire, codicePartecipazione, iscritto, pagato, partecipato,
                      attivitaID, classeID, studenteID
               FROM aderire";
 
@@ -19,8 +19,8 @@ namespace EsLab_Eventi_Ghouzlani
         {
             ClsAderire a = new ClsAderire();
             a.IDaderire = Convert.ToInt32(r["IDaderire"]);
+            a.CodicePartecipazione = r["codicePartecipazione"] == DBNull.Value ? "" : r["codicePartecipazione"].ToString();
             a.Iscritto = r["iscritto"] == DBNull.Value ? false : Convert.ToBoolean(r["iscritto"]);
-            a.Autorizzato = r["autorizzato"] == DBNull.Value ? false : Convert.ToBoolean(r["autorizzato"]);
             a.Pagato = r["pagato"] == DBNull.Value ? false : Convert.ToBoolean(r["pagato"]);
             a.Partecipato = r["partecipato"] == DBNull.Value ? false : Convert.ToBoolean(r["partecipato"]);
             a.AttivitaID = r["attivitaID"] == DBNull.Value ? 0 : Convert.ToInt32(r["attivitaID"]);
@@ -41,12 +41,12 @@ namespace EsLab_Eventi_Ghouzlani
                     conn.Open();
 
                 string sql = @"INSERT INTO aderire
-                                    (iscritto, autorizzato, pagato, partecipato, attivitaID, classeID, studenteID)
+                                    (codicePartecipazione, iscritto, pagato, partecipato, attivitaID, classeID, studenteID)
                                VALUES
-                                    (@iscritto, @autorizzato, @pagato, @partecipato, @attivitaID, @classeID, @studenteID)";
+                                    (@codicePartecipazione, @iscritto, @pagato, @partecipato, @attivitaID, @classeID, @studenteID)";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@codicePartecipazione", aderire.CodicePartecipazione ?? "");
                 cmd.Parameters.AddWithValue("@iscritto", aderire.Iscritto);
-                cmd.Parameters.AddWithValue("@autorizzato", aderire.Autorizzato);
                 cmd.Parameters.AddWithValue("@pagato", aderire.Pagato);
                 cmd.Parameters.AddWithValue("@partecipato", aderire.Partecipato);
                 cmd.Parameters.AddWithValue("@attivitaID", aderire.AttivitaID);
@@ -73,64 +73,6 @@ namespace EsLab_Eventi_Ghouzlani
         #endregion
 
         #region READ
-        internal static List<ClsAderire> GetAll(ref MySqlConnection conn, out string errore)
-        {
-            List<ClsAderire> adesioni = new List<ClsAderire>();
-            errore = string.Empty;
-
-            try
-            {
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-
-                MySqlDataAdapter da = new MySqlDataAdapter(SELECT_BASE, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                for (int i = 0; i < dt.Rows.Count; i++)
-                    adesioni.Add(CreaAderireDaRiga(dt.Rows[i]));
-
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                errore = ex.Message;
-            }
-
-            return adesioni;
-        }
-
-        internal static ClsAderire GetByID(ref MySqlConnection conn, int id, out string errore)
-        {
-            ClsAderire aderire = null;
-            errore = string.Empty;
-
-            if (id <= 0)
-                errore = "ID non valido";
-            else
-            {
-                try
-                {
-                    if (conn.State != ConnectionState.Open)
-                        conn.Open();
-
-                    MySqlDataAdapter da = new MySqlDataAdapter(SELECT_BASE + " WHERE IDaderire=@id LIMIT 1", conn);
-                    da.SelectCommand.Parameters.AddWithValue("@id", id);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    if (dt.Rows.Count > 0)
-                        aderire = CreaAderireDaRiga(dt.Rows[0]);
-
-                    conn.Close();
-                }
-                catch (Exception ex)
-                {
-                    errore = ex.Message;
-                }
-            }
-            return aderire;
-        }
 
         internal static List<ClsAderire> GetByAttivitaID(ref MySqlConnection conn, int attivitaID, out string errore)
         {
@@ -161,82 +103,17 @@ namespace EsLab_Eventi_Ghouzlani
                     errore = ex.Message;
                 }
             }
-            
+
             return adesioni;
         }
-
-        internal static List<ClsAderire> GetByStudenteID(ref MySqlConnection conn, int studenteID, out string errore)
-        {
-            List<ClsAderire> adesioni = new List<ClsAderire>();
-            errore = string.Empty;
-
-            if (studenteID <= 0)
-                errore = "StudenteID non valido";
-            else
-            {
-                try
-                {
-                    if (conn.State != ConnectionState.Open)
-                        conn.Open();
-
-                    MySqlDataAdapter da = new MySqlDataAdapter(SELECT_BASE + " WHERE studenteID=@studenteID", conn);
-                    da.SelectCommand.Parameters.AddWithValue("@studenteID", studenteID);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                        adesioni.Add(CreaAderireDaRiga(dt.Rows[i]));
-
-                    conn.Close();
-                }
-                catch (Exception ex)
-                {
-                    errore = ex.Message;
-                }
-            }
-            return adesioni;
-        }
-
-        internal static List<ClsAderire> GetByClasseID(ref MySqlConnection conn, string classeID, out string errore)
-        {
-            List<ClsAderire> adesioni = new List<ClsAderire>();
-            errore = string.Empty;
-
-            if (string.IsNullOrEmpty(classeID))
-                errore = "ClasseID non valido";
-            else
-            {
-                try
-                {
-                    if (conn.State != ConnectionState.Open)
-                        conn.Open();
-
-                    MySqlDataAdapter da = new MySqlDataAdapter(SELECT_BASE + " WHERE classeID=@classeID", conn);
-                    da.SelectCommand.Parameters.AddWithValue("@classeID", classeID);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                        adesioni.Add(CreaAderireDaRiga(dt.Rows[i]));
-
-                    conn.Close();
-                }
-                catch (Exception ex)
-                {
-                    errore = ex.Message;
-                }
-
-            }
-            return adesioni;
-        }
-
+        
         internal static ClsAderire GetByAttivitaIDeStudenteID(ref MySqlConnection conn, int attivitaID, int studenteID, out string errore)
         {
             ClsAderire aderire = null;
             errore = string.Empty;
 
             if (attivitaID <= 0 || studenteID <= 0)
-                errore = "Parametri non validi"; 
+                errore = "Parametri non validi";
             else
             {
                 try
@@ -264,6 +141,38 @@ namespace EsLab_Eventi_Ghouzlani
 
             return aderire;
         }
+        
+        internal static List<ClsAderire> GetByCodicePartecipazione(ref MySqlConnection conn, string codice, out string errore)
+        {
+            List<ClsAderire> adesioni = new List<ClsAderire>();
+            errore = string.Empty;
+
+            if (string.IsNullOrWhiteSpace(codice))
+                errore = "Codice non valido";
+            else
+            {
+                try
+                {
+                    if (conn.State != ConnectionState.Open)
+                        conn.Open();
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(SELECT_BASE + " WHERE codicePartecipazione=@codice", conn);
+                    da.SelectCommand.Parameters.AddWithValue("@codice", codice);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                        adesioni.Add(CreaAderireDaRiga(dt.Rows[i]));
+
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    errore = ex.Message;
+                }
+            }
+            return adesioni;
+        }
         #endregion
 
         #region UPDATE
@@ -282,8 +191,8 @@ namespace EsLab_Eventi_Ghouzlani
                         conn.Open();
 
                     string sql = @"UPDATE aderire SET
+                                    codicePartecipazione=@codicePartecipazione,
                                     iscritto=@iscritto,
-                                    autorizzato=@autorizzato,
                                     pagato=@pagato,
                                     partecipato=@partecipato,
                                     attivitaID=@attivitaID,
@@ -292,8 +201,8 @@ namespace EsLab_Eventi_Ghouzlani
                                 WHERE IDaderire=@id";
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@codicePartecipazione", aderire.CodicePartecipazione ?? "");
                     cmd.Parameters.AddWithValue("@iscritto", aderire.Iscritto);
-                    cmd.Parameters.AddWithValue("@autorizzato", aderire.Autorizzato);
                     cmd.Parameters.AddWithValue("@pagato", aderire.Pagato);
                     cmd.Parameters.AddWithValue("@partecipato", aderire.Partecipato);
                     cmd.Parameters.AddWithValue("@attivitaID", aderire.AttivitaID);
@@ -319,7 +228,7 @@ namespace EsLab_Eventi_Ghouzlani
             errore = string.Empty;
 
             if (id <= 0)
-                errore = "ID non valido"; 
+                errore = "ID non valido";
             else
             {
                 try
@@ -366,31 +275,7 @@ namespace EsLab_Eventi_Ghouzlani
 
             return count;
         }
-
-        internal static int CountByAttivitaID(ref MySqlConnection conn, int attivitaID, out string errore)
-        {
-            int count = 0;
-            errore = string.Empty;
-
-            try
-            {
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-
-                MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM aderire WHERE attivitaID=@attivitaID", conn);
-                cmd.Parameters.AddWithValue("@attivitaID", attivitaID);
-                if (cmd.ExecuteScalar() != null)
-                    count = Convert.ToInt32(cmd.ExecuteScalar());
-
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                errore = ex.Message;
-            }
-
-            return count;
-        }
+        
         #endregion
     }
 }

@@ -90,40 +90,6 @@ namespace EsLab_Eventi_Ghouzlani
 
             return attivita;
         }
-
-        internal static ClsAttivita GetByID(ref MySqlConnection conn, int id, out string errore)
-        {
-            ClsAttivita attivita = null;
-            errore = string.Empty;
-
-            if (id <= 0)
-                errore = "ID non valido";
-            else
-            {
-                try
-                {
-                    if (conn.State != ConnectionState.Open)
-                        conn.Open();
-
-                    MySqlDataAdapter da = new MySqlDataAdapter(SELECT_BASE + " WHERE ID=@id LIMIT 1", conn);
-                    da.SelectCommand.Parameters.AddWithValue("@id", id);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    if (dt.Rows.Count > 0)
-                        attivita = CreaAttivitaDaRiga(dt.Rows[0]);
-
-                    conn.Close();
-                }
-                catch (Exception ex)
-                {
-                    errore = ex.Message;
-                }
-
-            }
-            return attivita;
-        }
-
         internal static List<ClsAttivita> GetByEventoID(ref MySqlConnection conn, int eventoID, out string errore)
         {
             List<ClsAttivita> attivita = new List<ClsAttivita>();

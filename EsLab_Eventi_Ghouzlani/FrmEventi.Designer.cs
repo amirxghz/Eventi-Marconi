@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAttività = new System.Windows.Forms.Button();
             this.lblNumRecordTrovati = new System.Windows.Forms.Label();
             this.lvEventi = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblIconEdizione = new System.Windows.Forms.Label();
             this.tbFiltroNome = new System.Windows.Forms.TextBox();
             this.lblCercaPerTitolo = new System.Windows.Forms.Label();
@@ -41,16 +43,18 @@
             this.btnElimina = new System.Windows.Forms.Button();
             this.btnModifica = new System.Windows.Forms.Button();
             this.pnlDetails = new System.Windows.Forms.Panel();
-            this.pbLocandina = new System.Windows.Forms.PictureBox();
+            this.nudPrezzo = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpAl = new System.Windows.Forms.DateTimePicker();
             this.rtbDescrizione = new System.Windows.Forms.RichTextBox();
             this.lblSinossi = new System.Windows.Forms.Label();
             this.lblIconSinossi = new System.Windows.Forms.Label();
             this.lblDataProduzione = new System.Windows.Forms.Label();
             this.lblIconDataProduzione = new System.Windows.Forms.Label();
-            this.dtpDataProduzione = new System.Windows.Forms.DateTimePicker();
+            this.dtpDal = new System.Windows.Forms.DateTimePicker();
             this.tbTitolo = new System.Windows.Forms.TextBox();
             this.lblIconDataProduzione2 = new System.Windows.Forms.Label();
             this.lblTitolo2 = new System.Windows.Forms.Label();
@@ -59,11 +63,12 @@
             this.lblTitolo = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.pnlDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLocandina)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrezzo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnAttività);
             this.panel2.Controls.Add(this.lblNumRecordTrovati);
             this.panel2.Controls.Add(this.lvEventi);
             this.panel2.Controls.Add(this.lblIconEdizione);
@@ -78,6 +83,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(771, 587);
             this.panel2.TabIndex = 94;
+            // 
+            // btnAttività
+            // 
+            this.btnAttività.Font = new System.Drawing.Font("Coolvetica", 14.25F);
+            this.btnAttività.Location = new System.Drawing.Point(637, 484);
+            this.btnAttività.Name = "btnAttività";
+            this.btnAttività.Size = new System.Drawing.Size(117, 61);
+            this.btnAttività.TabIndex = 231;
+            this.btnAttività.Text = "✨Gestisci Attività";
+            this.btnAttività.UseVisualStyleBackColor = true;
+            this.btnAttività.Click += new System.EventHandler(this.btnAttività_Click);
             // 
             // lblNumRecordTrovati
             // 
@@ -94,16 +110,18 @@
             this.lvEventi.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4});
             this.lvEventi.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvEventi.FullRowSelect = true;
             this.lvEventi.HideSelection = false;
-            this.lvEventi.Location = new System.Drawing.Point(39, 103);
+            this.lvEventi.Location = new System.Drawing.Point(47, 103);
             this.lvEventi.Name = "lvEventi";
             this.lvEventi.Size = new System.Drawing.Size(584, 442);
             this.lvEventi.TabIndex = 229;
             this.lvEventi.UseCompatibleStateImageBehavior = false;
             this.lvEventi.View = System.Windows.Forms.View.Details;
+            this.lvEventi.SelectedIndexChanged += new System.EventHandler(this.LvEventi_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -113,12 +131,17 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Dal";
-            this.columnHeader2.Width = 177;
+            this.columnHeader2.Width = 134;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Al";
-            this.columnHeader3.Width = 183;
+            this.columnHeader3.Width = 133;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Prezzo";
+            this.columnHeader4.Width = 88;
             // 
             // lblIconEdizione
             // 
@@ -187,16 +210,18 @@
             // 
             // pnlDetails
             // 
-            this.pnlDetails.Controls.Add(this.pbLocandina);
+            this.pnlDetails.Controls.Add(this.nudPrezzo);
+            this.pnlDetails.Controls.Add(this.label3);
+            this.pnlDetails.Controls.Add(this.label4);
             this.pnlDetails.Controls.Add(this.label1);
             this.pnlDetails.Controls.Add(this.label2);
-            this.pnlDetails.Controls.Add(this.dateTimePicker1);
+            this.pnlDetails.Controls.Add(this.dtpAl);
             this.pnlDetails.Controls.Add(this.rtbDescrizione);
             this.pnlDetails.Controls.Add(this.lblSinossi);
             this.pnlDetails.Controls.Add(this.lblIconSinossi);
             this.pnlDetails.Controls.Add(this.lblDataProduzione);
             this.pnlDetails.Controls.Add(this.lblIconDataProduzione);
-            this.pnlDetails.Controls.Add(this.dtpDataProduzione);
+            this.pnlDetails.Controls.Add(this.dtpDal);
             this.pnlDetails.Controls.Add(this.tbTitolo);
             this.pnlDetails.Controls.Add(this.lblIconDataProduzione2);
             this.pnlDetails.Controls.Add(this.lblTitolo2);
@@ -210,24 +235,48 @@
             this.pnlDetails.Size = new System.Drawing.Size(510, 587);
             this.pnlDetails.TabIndex = 95;
             // 
-            // pbLocandina
+            // nudPrezzo
             // 
-            this.pbLocandina.Image = global::EsLab_Eventi_Ghouzlani.Properties.Resources.evento;
-            this.pbLocandina.Location = new System.Drawing.Point(27, 103);
-            this.pbLocandina.Name = "pbLocandina";
-            this.pbLocandina.Size = new System.Drawing.Size(400, 150);
-            this.pbLocandina.TabIndex = 279;
-            this.pbLocandina.TabStop = false;
-            this.pbLocandina.Click += new System.EventHandler(this.pbLocandina_Click);
-            this.pbLocandina.MouseLeave += new System.EventHandler(this.pbLocandina_MouseLeave);
-            this.pbLocandina.MouseHover += new System.EventHandler(this.pbLocandina_MouseHover);
+            this.nudPrezzo.DecimalPlaces = 2;
+            this.nudPrezzo.Location = new System.Drawing.Point(58, 453);
+            this.nudPrezzo.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.nudPrezzo.Name = "nudPrezzo";
+            this.nudPrezzo.Size = new System.Drawing.Size(120, 30);
+            this.nudPrezzo.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.Location = new System.Drawing.Point(19, 424);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 23);
+            this.label3.TabIndex = 279;
+            this.label3.Text = "Prezzo";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(18, 453);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 25);
+            this.label4.TabIndex = 280;
+            this.label4.Text = "💵";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(228, 449);
+            this.label1.Location = new System.Drawing.Point(224, 361);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 23);
             this.label1.TabIndex = 277;
@@ -239,28 +288,28 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(227, 478);
+            this.label2.Location = new System.Drawing.Point(223, 390);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 25);
             this.label2.TabIndex = 278;
             this.label2.Text = "🗓️";
             // 
-            // dateTimePicker1
+            // dtpAl
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(267, 478);
-            this.dateTimePicker1.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(156, 30);
-            this.dateTimePicker1.TabIndex = 276;
+            this.dtpAl.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpAl.Location = new System.Drawing.Point(263, 390);
+            this.dtpAl.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dtpAl.Name = "dtpAl";
+            this.dtpAl.Size = new System.Drawing.Size(156, 30);
+            this.dtpAl.TabIndex = 4;
             // 
             // rtbDescrizione
             // 
             this.rtbDescrizione.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbDescrizione.Location = new System.Drawing.Point(58, 356);
+            this.rtbDescrizione.Location = new System.Drawing.Point(54, 176);
             this.rtbDescrizione.Name = "rtbDescrizione";
-            this.rtbDescrizione.Size = new System.Drawing.Size(365, 89);
-            this.rtbDescrizione.TabIndex = 237;
+            this.rtbDescrizione.Size = new System.Drawing.Size(365, 182);
+            this.rtbDescrizione.TabIndex = 2;
             this.rtbDescrizione.Text = "";
             // 
             // lblSinossi
@@ -268,7 +317,7 @@
             this.lblSinossi.AutoSize = true;
             this.lblSinossi.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSinossi.ForeColor = System.Drawing.Color.Gray;
-            this.lblSinossi.Location = new System.Drawing.Point(23, 330);
+            this.lblSinossi.Location = new System.Drawing.Point(19, 150);
             this.lblSinossi.Name = "lblSinossi";
             this.lblSinossi.Size = new System.Drawing.Size(102, 23);
             this.lblSinossi.TabIndex = 248;
@@ -280,7 +329,7 @@
             this.lblIconSinossi.BackColor = System.Drawing.Color.Transparent;
             this.lblIconSinossi.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIconSinossi.ForeColor = System.Drawing.Color.Black;
-            this.lblIconSinossi.Location = new System.Drawing.Point(22, 359);
+            this.lblIconSinossi.Location = new System.Drawing.Point(18, 179);
             this.lblIconSinossi.Name = "lblIconSinossi";
             this.lblIconSinossi.Size = new System.Drawing.Size(34, 25);
             this.lblIconSinossi.TabIndex = 249;
@@ -291,7 +340,7 @@
             this.lblDataProduzione.AutoSize = true;
             this.lblDataProduzione.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataProduzione.ForeColor = System.Drawing.Color.Gray;
-            this.lblDataProduzione.Location = new System.Drawing.Point(23, 450);
+            this.lblDataProduzione.Location = new System.Drawing.Point(19, 362);
             this.lblDataProduzione.Name = "lblDataProduzione";
             this.lblDataProduzione.Size = new System.Drawing.Size(45, 23);
             this.lblDataProduzione.TabIndex = 233;
@@ -303,29 +352,29 @@
             this.lblIconDataProduzione.BackColor = System.Drawing.Color.Transparent;
             this.lblIconDataProduzione.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIconDataProduzione.ForeColor = System.Drawing.Color.Black;
-            this.lblIconDataProduzione.Location = new System.Drawing.Point(22, 479);
+            this.lblIconDataProduzione.Location = new System.Drawing.Point(18, 391);
             this.lblIconDataProduzione.Name = "lblIconDataProduzione";
             this.lblIconDataProduzione.Size = new System.Drawing.Size(34, 25);
             this.lblIconDataProduzione.TabIndex = 234;
             this.lblIconDataProduzione.Text = "🗓️";
             // 
-            // dtpDataProduzione
+            // dtpDal
             // 
-            this.dtpDataProduzione.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataProduzione.Location = new System.Drawing.Point(62, 479);
-            this.dtpDataProduzione.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dtpDataProduzione.Name = "dtpDataProduzione";
-            this.dtpDataProduzione.Size = new System.Drawing.Size(156, 30);
-            this.dtpDataProduzione.TabIndex = 232;
+            this.dtpDal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDal.Location = new System.Drawing.Point(58, 391);
+            this.dtpDal.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dtpDal.Name = "dtpDal";
+            this.dtpDal.Size = new System.Drawing.Size(156, 30);
+            this.dtpDal.TabIndex = 3;
             // 
             // tbTitolo
             // 
             this.tbTitolo.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTitolo.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.tbTitolo.Location = new System.Drawing.Point(54, 286);
+            this.tbTitolo.Location = new System.Drawing.Point(50, 106);
             this.tbTitolo.Name = "tbTitolo";
             this.tbTitolo.Size = new System.Drawing.Size(369, 33);
-            this.tbTitolo.TabIndex = 227;
+            this.tbTitolo.TabIndex = 1;
             // 
             // lblIconDataProduzione2
             // 
@@ -333,7 +382,7 @@
             this.lblIconDataProduzione2.BackColor = System.Drawing.Color.Transparent;
             this.lblIconDataProduzione2.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIconDataProduzione2.ForeColor = System.Drawing.Color.Black;
-            this.lblIconDataProduzione2.Location = new System.Drawing.Point(22, 289);
+            this.lblIconDataProduzione2.Location = new System.Drawing.Point(18, 109);
             this.lblIconDataProduzione2.Name = "lblIconDataProduzione2";
             this.lblIconDataProduzione2.Size = new System.Drawing.Size(34, 25);
             this.lblIconDataProduzione2.TabIndex = 228;
@@ -344,7 +393,7 @@
             this.lblTitolo2.AutoSize = true;
             this.lblTitolo2.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitolo2.ForeColor = System.Drawing.Color.Gray;
-            this.lblTitolo2.Location = new System.Drawing.Point(23, 260);
+            this.lblTitolo2.Location = new System.Drawing.Point(19, 80);
             this.lblTitolo2.Name = "lblTitolo2";
             this.lblTitolo2.Size = new System.Drawing.Size(68, 23);
             this.lblTitolo2.TabIndex = 226;
@@ -353,7 +402,7 @@
             // btnAnnulla
             // 
             this.btnAnnulla.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnulla.Location = new System.Drawing.Point(306, 518);
+            this.btnAnnulla.Location = new System.Drawing.Point(302, 499);
             this.btnAnnulla.Name = "btnAnnulla";
             this.btnAnnulla.Size = new System.Drawing.Size(117, 31);
             this.btnAnnulla.TabIndex = 225;
@@ -364,10 +413,10 @@
             // btnAggiungi
             // 
             this.btnAggiungi.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAggiungi.Location = new System.Drawing.Point(27, 515);
+            this.btnAggiungi.Location = new System.Drawing.Point(23, 496);
             this.btnAggiungi.Name = "btnAggiungi";
             this.btnAggiungi.Size = new System.Drawing.Size(273, 36);
-            this.btnAggiungi.TabIndex = 224;
+            this.btnAggiungi.TabIndex = 6;
             this.btnAggiungi.Text = "➕Aggiungi";
             this.btnAggiungi.UseVisualStyleBackColor = true;
             this.btnAggiungi.Click += new System.EventHandler(this.btnAggiungi_Click);
@@ -398,7 +447,7 @@
             this.panel2.PerformLayout();
             this.pnlDetails.ResumeLayout(false);
             this.pnlDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLocandina)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrezzo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -418,21 +467,25 @@
         private System.Windows.Forms.Button btnElimina;
         private System.Windows.Forms.Button btnModifica;
         private System.Windows.Forms.Panel pnlDetails;
-        private System.Windows.Forms.PictureBox pbLocandina;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpAl;
         private System.Windows.Forms.RichTextBox rtbDescrizione;
         private System.Windows.Forms.Label lblSinossi;
         private System.Windows.Forms.Label lblIconSinossi;
         private System.Windows.Forms.Label lblDataProduzione;
         private System.Windows.Forms.Label lblIconDataProduzione;
-        private System.Windows.Forms.DateTimePicker dtpDataProduzione;
+        private System.Windows.Forms.DateTimePicker dtpDal;
         private System.Windows.Forms.TextBox tbTitolo;
         private System.Windows.Forms.Label lblIconDataProduzione2;
         private System.Windows.Forms.Label lblTitolo2;
         private System.Windows.Forms.Button btnAnnulla;
         private System.Windows.Forms.Button btnAggiungi;
         private System.Windows.Forms.Label lblTitolo;
+        private System.Windows.Forms.Button btnAttività;
+        private System.Windows.Forms.NumericUpDown nudPrezzo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

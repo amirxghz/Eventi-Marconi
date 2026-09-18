@@ -29,28 +29,17 @@
         private void InitializeComponent()
         {
             this.pnlRegistrati = new System.Windows.Forms.Panel();
-            this.cbPrefissoTelefonico = new System.Windows.Forms.ComboBox();
-            this.tbTelefono = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.btnVisualizzaPasswordCreata = new System.Windows.Forms.Button();
             this.tbCreaPassword = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.tbEmail = new System.Windows.Forms.TextBox();
-            this.pbFotoProfilo = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tbUsernae = new System.Windows.Forms.TextBox();
             this.llblAccedi = new System.Windows.Forms.LinkLabel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.btnRegistrati = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.dtmDataDiNascita = new System.Windows.Forms.DateTimePicker();
             this.tbCognome = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -59,8 +48,6 @@
             this.tbNome = new System.Windows.Forms.TextBox();
             this.pnlAccesso = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.llblPasswordDimenticata = new System.Windows.Forms.LinkLabel();
-            this.cbRicordaPassword = new System.Windows.Forms.CheckBox();
             this.llblRegistrati = new System.Windows.Forms.LinkLabel();
             this.btnVisualizzaPassword = new System.Windows.Forms.Button();
             this.btnAccedi = new System.Windows.Forms.Button();
@@ -72,34 +59,22 @@
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.pnlRegistrati.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoProfilo)).BeginInit();
             this.pnlAccesso.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRegistrati
             // 
-            this.pnlRegistrati.Controls.Add(this.cbPrefissoTelefonico);
-            this.pnlRegistrati.Controls.Add(this.tbTelefono);
             this.pnlRegistrati.Controls.Add(this.label10);
             this.pnlRegistrati.Controls.Add(this.label12);
             this.pnlRegistrati.Controls.Add(this.btnVisualizzaPasswordCreata);
             this.pnlRegistrati.Controls.Add(this.tbCreaPassword);
             this.pnlRegistrati.Controls.Add(this.label8);
             this.pnlRegistrati.Controls.Add(this.label9);
-            this.pnlRegistrati.Controls.Add(this.label23);
             this.pnlRegistrati.Controls.Add(this.label11);
-            this.pnlRegistrati.Controls.Add(this.label24);
-            this.pnlRegistrati.Controls.Add(this.tbEmail);
-            this.pnlRegistrati.Controls.Add(this.pbFotoProfilo);
             this.pnlRegistrati.Controls.Add(this.label16);
             this.pnlRegistrati.Controls.Add(this.tbUsernae);
             this.pnlRegistrati.Controls.Add(this.llblAccedi);
-            this.pnlRegistrati.Controls.Add(this.label13);
-            this.pnlRegistrati.Controls.Add(this.label17);
-            this.pnlRegistrati.Controls.Add(this.label15);
             this.pnlRegistrati.Controls.Add(this.btnRegistrati);
-            this.pnlRegistrati.Controls.Add(this.label22);
-            this.pnlRegistrati.Controls.Add(this.dtmDataDiNascita);
             this.pnlRegistrati.Controls.Add(this.tbCognome);
             this.pnlRegistrati.Controls.Add(this.label18);
             this.pnlRegistrati.Controls.Add(this.label21);
@@ -113,30 +88,13 @@
             this.pnlRegistrati.TabIndex = 24;
             this.pnlRegistrati.Visible = false;
             // 
-            // cbPrefissoTelefonico
-            // 
-            this.cbPrefissoTelefonico.Font = new System.Drawing.Font("Helvetica", 15.75F);
-            this.cbPrefissoTelefonico.FormattingEnabled = true;
-            this.cbPrefissoTelefonico.Location = new System.Drawing.Point(46, 322);
-            this.cbPrefissoTelefonico.Name = "cbPrefissoTelefonico";
-            this.cbPrefissoTelefonico.Size = new System.Drawing.Size(82, 33);
-            this.cbPrefissoTelefonico.TabIndex = 60;
-            // 
-            // tbTelefono
-            // 
-            this.tbTelefono.Font = new System.Drawing.Font("Helvetica", 15.75F);
-            this.tbTelefono.Location = new System.Drawing.Point(134, 322);
-            this.tbTelefono.Name = "tbTelefono";
-            this.tbTelefono.Size = new System.Drawing.Size(231, 32);
-            this.tbTelefono.TabIndex = 59;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(8, 387);
+            this.label10.Location = new System.Drawing.Point(9, 290);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 25);
             this.label10.TabIndex = 57;
@@ -147,7 +105,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Helvetica", 14.25F);
             this.label12.ForeColor = System.Drawing.Color.Gray;
-            this.label12.Location = new System.Drawing.Point(9, 358);
+            this.label12.Location = new System.Drawing.Point(10, 261);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(100, 22);
             this.label12.TabIndex = 55;
@@ -158,10 +116,10 @@
             this.btnVisualizzaPasswordCreata.BackColor = System.Drawing.Color.White;
             this.btnVisualizzaPasswordCreata.Font = new System.Drawing.Font("Helvetica", 15.75F);
             this.btnVisualizzaPasswordCreata.ForeColor = System.Drawing.Color.Black;
-            this.btnVisualizzaPasswordCreata.Location = new System.Drawing.Point(331, 449);
+            this.btnVisualizzaPasswordCreata.Location = new System.Drawing.Point(332, 352);
             this.btnVisualizzaPasswordCreata.Name = "btnVisualizzaPasswordCreata";
             this.btnVisualizzaPasswordCreata.Size = new System.Drawing.Size(38, 33);
-            this.btnVisualizzaPasswordCreata.TabIndex = 51;
+            this.btnVisualizzaPasswordCreata.TabIndex = 10;
             this.btnVisualizzaPasswordCreata.Text = "👁️";
             this.btnVisualizzaPasswordCreata.UseVisualStyleBackColor = false;
             this.btnVisualizzaPasswordCreata.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnVisualizzaPasswordCreata_MouseDown);
@@ -170,18 +128,19 @@
             // tbCreaPassword
             // 
             this.tbCreaPassword.Font = new System.Drawing.Font("Helvetica", 15.75F);
-            this.tbCreaPassword.Location = new System.Drawing.Point(47, 449);
+            this.tbCreaPassword.Location = new System.Drawing.Point(48, 352);
             this.tbCreaPassword.Name = "tbCreaPassword";
             this.tbCreaPassword.ShortcutsEnabled = false;
             this.tbCreaPassword.Size = new System.Drawing.Size(288, 32);
-            this.tbCreaPassword.TabIndex = 50;
+            this.tbCreaPassword.TabIndex = 9;
+            this.tbCreaPassword.UseSystemPasswordChar = true;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Helvetica", 14.25F);
             this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(10, 423);
+            this.label8.Location = new System.Drawing.Point(11, 326);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 22);
             this.label8.TabIndex = 48;
@@ -193,29 +152,18 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(10, 452);
+            this.label9.Location = new System.Drawing.Point(11, 355);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(34, 25);
             this.label9.TabIndex = 49;
             this.label9.Text = "🔐";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Helvetica", 14.25F);
-            this.label23.ForeColor = System.Drawing.Color.Gray;
-            this.label23.Location = new System.Drawing.Point(10, 178);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(58, 22);
-            this.label23.TabIndex = 43;
-            this.label23.Text = "Email";
             // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Helvetica", 26.25F);
-            this.label11.Location = new System.Drawing.Point(5, 10);
+            this.label11.Location = new System.Drawing.Point(3, 91);
             this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(193, 41);
@@ -223,47 +171,12 @@
             this.label11.Text = "Benvenuto!";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.Transparent;
-            this.label24.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(12, 207);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(27, 25);
-            this.label24.TabIndex = 45;
-            this.label24.Text = "@";
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.Font = new System.Drawing.Font("Helvetica", 15.75F);
-            this.tbEmail.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.tbEmail.Location = new System.Drawing.Point(48, 204);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(321, 32);
-            this.tbEmail.TabIndex = 44;
-            // 
-            // pbFotoProfilo
-            // 
-            this.pbFotoProfilo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbFotoProfilo.Image = global::EsLab_Eventi_Ghouzlani.Properties.Resources.Pfp;
-            this.pbFotoProfilo.Location = new System.Drawing.Point(10, 55);
-            this.pbFotoProfilo.Name = "pbFotoProfilo";
-            this.pbFotoProfilo.Size = new System.Drawing.Size(118, 120);
-            this.pbFotoProfilo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFotoProfilo.TabIndex = 42;
-            this.pbFotoProfilo.TabStop = false;
-            this.pbFotoProfilo.Click += new System.EventHandler(this.pbFotoProfilo_Click);
-            this.pbFotoProfilo.MouseLeave += new System.EventHandler(this.pbFotoProfilo_MouseLeave);
-            this.pbFotoProfilo.MouseHover += new System.EventHandler(this.pbFotoProfilo_MouseHover);
-            // 
             // label16
             // 
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Helvetica", 14.25F);
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(13, 557);
+            this.label16.Location = new System.Drawing.Point(14, 460);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(353, 23);
             this.label16.TabIndex = 24;
@@ -274,10 +187,10 @@
             // 
             this.tbUsernae.Font = new System.Drawing.Font("Helvetica", 15.75F);
             this.tbUsernae.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.tbUsernae.Location = new System.Drawing.Point(44, 384);
+            this.tbUsernae.Location = new System.Drawing.Point(45, 287);
             this.tbUsernae.Name = "tbUsernae";
             this.tbUsernae.Size = new System.Drawing.Size(321, 32);
-            this.tbUsernae.TabIndex = 22;
+            this.tbUsernae.TabIndex = 8;
             // 
             // llblAccedi
             // 
@@ -286,102 +199,44 @@
             this.llblAccedi.Font = new System.Drawing.Font("Helvetica", 14.25F);
             this.llblAccedi.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             this.llblAccedi.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.llblAccedi.Location = new System.Drawing.Point(17, 580);
+            this.llblAccedi.Location = new System.Drawing.Point(18, 483);
             this.llblAccedi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.llblAccedi.Name = "llblAccedi";
             this.llblAccedi.Size = new System.Drawing.Size(349, 23);
-            this.llblAccedi.TabIndex = 22;
+            this.llblAccedi.TabIndex = 12;
             this.llblAccedi.TabStop = true;
             this.llblAccedi.Text = "Accedi";
             this.llblAccedi.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.llblAccedi.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblAccedi_LinkClicked);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(9, 325);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(34, 25);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "📞";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Helvetica", 14.25F);
-            this.label17.ForeColor = System.Drawing.Color.Gray;
-            this.label17.Location = new System.Drawing.Point(10, 234);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(141, 22);
-            this.label17.TabIndex = 37;
-            this.label17.Text = "Data di Nascita";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Helvetica", 14.25F);
-            this.label15.ForeColor = System.Drawing.Color.Gray;
-            this.label15.Location = new System.Drawing.Point(10, 296);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(84, 22);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "Telefono";
             // 
             // btnRegistrati
             // 
             this.btnRegistrati.BackColor = System.Drawing.Color.Black;
             this.btnRegistrati.Font = new System.Drawing.Font("Helvetica", 20.25F);
             this.btnRegistrati.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrati.Location = new System.Drawing.Point(10, 508);
+            this.btnRegistrati.Location = new System.Drawing.Point(11, 411);
             this.btnRegistrati.Name = "btnRegistrati";
             this.btnRegistrati.Size = new System.Drawing.Size(355, 46);
-            this.btnRegistrati.TabIndex = 23;
+            this.btnRegistrati.TabIndex = 11;
             this.btnRegistrati.Text = "Registrati";
             this.btnRegistrati.UseVisualStyleBackColor = false;
             this.btnRegistrati.Click += new System.EventHandler(this.btnRegistrati_Click);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(9, 263);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(34, 25);
-            this.label22.TabIndex = 41;
-            this.label22.Text = "🗓️";
-            // 
-            // dtmDataDiNascita
-            // 
-            this.dtmDataDiNascita.Font = new System.Drawing.Font("Helvetica", 15.75F);
-            this.dtmDataDiNascita.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtmDataDiNascita.Location = new System.Drawing.Point(49, 263);
-            this.dtmDataDiNascita.MaxDate = new System.DateTime(2025, 11, 1, 0, 0, 0, 0);
-            this.dtmDataDiNascita.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dtmDataDiNascita.Name = "dtmDataDiNascita";
-            this.dtmDataDiNascita.Size = new System.Drawing.Size(317, 32);
-            this.dtmDataDiNascita.TabIndex = 36;
-            this.dtmDataDiNascita.Value = new System.DateTime(2025, 11, 1, 0, 0, 0, 0);
             // 
             // tbCognome
             // 
             this.tbCognome.Font = new System.Drawing.Font("Helvetica", 15.75F);
             this.tbCognome.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.tbCognome.Location = new System.Drawing.Point(165, 143);
+            this.tbCognome.Location = new System.Drawing.Point(42, 222);
             this.tbCognome.Name = "tbCognome";
-            this.tbCognome.Size = new System.Drawing.Size(201, 32);
-            this.tbCognome.TabIndex = 31;
+            this.tbCognome.Size = new System.Drawing.Size(321, 32);
+            this.tbCognome.TabIndex = 7;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Helvetica", 14.25F);
             this.label18.ForeColor = System.Drawing.Color.Gray;
-            this.label18.Location = new System.Drawing.Point(134, 55);
+            this.label18.Location = new System.Drawing.Point(11, 134);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(62, 22);
             this.label18.TabIndex = 33;
@@ -393,7 +248,7 @@
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(133, 146);
+            this.label21.Location = new System.Drawing.Point(10, 225);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(34, 25);
             this.label21.TabIndex = 32;
@@ -405,7 +260,7 @@
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(133, 84);
+            this.label19.Location = new System.Drawing.Point(10, 163);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(34, 25);
             this.label19.TabIndex = 35;
@@ -416,7 +271,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Helvetica", 14.25F);
             this.label20.ForeColor = System.Drawing.Color.Gray;
-            this.label20.Location = new System.Drawing.Point(134, 117);
+            this.label20.Location = new System.Drawing.Point(11, 196);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(95, 22);
             this.label20.TabIndex = 30;
@@ -426,16 +281,14 @@
             // 
             this.tbNome.Font = new System.Drawing.Font("Helvetica", 15.75F);
             this.tbNome.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.tbNome.Location = new System.Drawing.Point(165, 84);
+            this.tbNome.Location = new System.Drawing.Point(42, 163);
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(204, 32);
-            this.tbNome.TabIndex = 34;
+            this.tbNome.Size = new System.Drawing.Size(324, 32);
+            this.tbNome.TabIndex = 6;
             // 
             // pnlAccesso
             // 
             this.pnlAccesso.Controls.Add(this.label6);
-            this.pnlAccesso.Controls.Add(this.llblPasswordDimenticata);
-            this.pnlAccesso.Controls.Add(this.cbRicordaPassword);
             this.pnlAccesso.Controls.Add(this.llblRegistrati);
             this.pnlAccesso.Controls.Add(this.btnVisualizzaPassword);
             this.pnlAccesso.Controls.Add(this.btnAccedi);
@@ -463,32 +316,6 @@
             this.label6.Text = "Sei nuovo da queste parti?";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // llblPasswordDimenticata
-            // 
-            this.llblPasswordDimenticata.ActiveLinkColor = System.Drawing.Color.Red;
-            this.llblPasswordDimenticata.AutoSize = true;
-            this.llblPasswordDimenticata.Font = new System.Drawing.Font("Helvetica", 12F);
-            this.llblPasswordDimenticata.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.llblPasswordDimenticata.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.llblPasswordDimenticata.Location = new System.Drawing.Point(201, 187);
-            this.llblPasswordDimenticata.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.llblPasswordDimenticata.Name = "llblPasswordDimenticata";
-            this.llblPasswordDimenticata.Size = new System.Drawing.Size(175, 19);
-            this.llblPasswordDimenticata.TabIndex = 20;
-            this.llblPasswordDimenticata.TabStop = true;
-            this.llblPasswordDimenticata.Text = "Password dimenticata?";
-            // 
-            // cbRicordaPassword
-            // 
-            this.cbRicordaPassword.AutoSize = true;
-            this.cbRicordaPassword.Font = new System.Drawing.Font("Helvetica", 12F);
-            this.cbRicordaPassword.Location = new System.Drawing.Point(7, 187);
-            this.cbRicordaPassword.Name = "cbRicordaPassword";
-            this.cbRicordaPassword.Size = new System.Drawing.Size(101, 23);
-            this.cbRicordaPassword.TabIndex = 19;
-            this.cbRicordaPassword.Text = "Ricordami";
-            this.cbRicordaPassword.UseVisualStyleBackColor = true;
-            // 
             // llblRegistrati
             // 
             this.llblRegistrati.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -500,7 +327,7 @@
             this.llblRegistrati.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.llblRegistrati.Name = "llblRegistrati";
             this.llblRegistrati.Size = new System.Drawing.Size(349, 23);
-            this.llblRegistrati.TabIndex = 9;
+            this.llblRegistrati.TabIndex = 5;
             this.llblRegistrati.TabStop = true;
             this.llblRegistrati.Text = "Registrati";
             this.llblRegistrati.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -514,7 +341,7 @@
             this.btnVisualizzaPassword.Location = new System.Drawing.Point(331, 147);
             this.btnVisualizzaPassword.Name = "btnVisualizzaPassword";
             this.btnVisualizzaPassword.Size = new System.Drawing.Size(38, 33);
-            this.btnVisualizzaPassword.TabIndex = 18;
+            this.btnVisualizzaPassword.TabIndex = 3;
             this.btnVisualizzaPassword.Text = "👁️";
             this.btnVisualizzaPassword.UseVisualStyleBackColor = false;
             this.btnVisualizzaPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnVisualizzaPassword_MouseDown);
@@ -528,7 +355,7 @@
             this.btnAccedi.Location = new System.Drawing.Point(10, 230);
             this.btnAccedi.Name = "btnAccedi";
             this.btnAccedi.Size = new System.Drawing.Size(359, 46);
-            this.btnAccedi.TabIndex = 12;
+            this.btnAccedi.TabIndex = 4;
             this.btnAccedi.Text = "Accedi";
             this.btnAccedi.UseVisualStyleBackColor = false;
             this.btnAccedi.Click += new System.EventHandler(this.btnAccedi_Click);
@@ -552,7 +379,8 @@
             this.tbPasswordLog.Name = "tbPasswordLog";
             this.tbPasswordLog.ShortcutsEnabled = false;
             this.tbPasswordLog.Size = new System.Drawing.Size(288, 30);
-            this.tbPasswordLog.TabIndex = 14;
+            this.tbPasswordLog.TabIndex = 2;
+            this.tbPasswordLog.UseSystemPasswordChar = true;
             // 
             // label35
             // 
@@ -593,11 +421,10 @@
             // tbUsername
             // 
             this.tbUsername.Font = new System.Drawing.Font("Helvetica", 14.25F);
-            this.tbUsername.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.tbUsername.Location = new System.Drawing.Point(47, 82);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(318, 30);
-            this.tbUsername.TabIndex = 13;
+            this.tbUsername.TabIndex = 1;
             // 
             // label38
             // 
@@ -615,17 +442,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 625);
-            this.Controls.Add(this.pnlAccesso);
             this.Controls.Add(this.pnlRegistrati);
+            this.Controls.Add(this.pnlAccesso);
             this.Font = new System.Drawing.Font("Helvetica", 14.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Benvenuto";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.pnlRegistrati.ResumeLayout(false);
             this.pnlRegistrati.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoProfilo)).EndInit();
             this.pnlAccesso.ResumeLayout(false);
             this.pnlAccesso.PerformLayout();
             this.ResumeLayout(false);
@@ -635,28 +462,17 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlRegistrati;
-        private System.Windows.Forms.ComboBox cbPrefissoTelefonico;
-        private System.Windows.Forms.TextBox tbTelefono;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnVisualizzaPasswordCreata;
         private System.Windows.Forms.TextBox tbCreaPassword;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.PictureBox pbFotoProfilo;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox tbUsernae;
         private System.Windows.Forms.LinkLabel llblAccedi;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnRegistrati;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.DateTimePicker dtmDataDiNascita;
         private System.Windows.Forms.TextBox tbCognome;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label21;
@@ -665,8 +481,6 @@
         private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.Panel pnlAccesso;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.LinkLabel llblPasswordDimenticata;
-        private System.Windows.Forms.CheckBox cbRicordaPassword;
         private System.Windows.Forms.LinkLabel llblRegistrati;
         private System.Windows.Forms.Button btnVisualizzaPassword;
         private System.Windows.Forms.Button btnAccedi;
