@@ -196,6 +196,7 @@
             // 
             this.llblAccedi.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.llblAccedi.BackColor = System.Drawing.Color.Transparent;
+            this.llblAccedi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.llblAccedi.Font = new System.Drawing.Font("Helvetica", 14.25F);
             this.llblAccedi.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             this.llblAccedi.LinkColor = System.Drawing.Color.DodgerBlue;
@@ -212,6 +213,7 @@
             // btnRegistrati
             // 
             this.btnRegistrati.BackColor = System.Drawing.Color.Black;
+            this.btnRegistrati.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistrati.Font = new System.Drawing.Font("Helvetica", 20.25F);
             this.btnRegistrati.ForeColor = System.Drawing.Color.White;
             this.btnRegistrati.Location = new System.Drawing.Point(11, 411);
@@ -320,6 +322,7 @@
             // 
             this.llblRegistrati.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.llblRegistrati.BackColor = System.Drawing.Color.Transparent;
+            this.llblRegistrati.Cursor = System.Windows.Forms.Cursors.Hand;
             this.llblRegistrati.Font = new System.Drawing.Font("Helvetica", 14.25F);
             this.llblRegistrati.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             this.llblRegistrati.LinkColor = System.Drawing.Color.DodgerBlue;
@@ -350,6 +353,7 @@
             // btnAccedi
             // 
             this.btnAccedi.BackColor = System.Drawing.Color.Black;
+            this.btnAccedi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAccedi.Font = new System.Drawing.Font("Helvetica", 20.25F);
             this.btnAccedi.ForeColor = System.Drawing.Color.White;
             this.btnAccedi.Location = new System.Drawing.Point(10, 230);

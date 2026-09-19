@@ -307,5 +307,11 @@ namespace EsLab_Eventi_Ghouzlani
             if (_modalitaVisualizza && lvClassi.SelectedItems.Count > 0)
                 VisualizzaClasseSelezionata();
         }
+
+        private void btnIndirizzo_Click(object sender, EventArgs e)
+        {
+            FrmIndirizzi frmIndirizzi = new FrmIndirizzi();
+            frmIndirizzi.Show();
+        }
     }
 }

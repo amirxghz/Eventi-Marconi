@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAttività = new System.Windows.Forms.Button();
             this.lblNumRecordTrovati = new System.Windows.Forms.Label();
             this.lvEventi = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -68,7 +67,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnAttività);
             this.panel2.Controls.Add(this.lblNumRecordTrovati);
             this.panel2.Controls.Add(this.lvEventi);
             this.panel2.Controls.Add(this.lblIconEdizione);
@@ -83,17 +81,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(771, 587);
             this.panel2.TabIndex = 94;
-            // 
-            // btnAttività
-            // 
-            this.btnAttività.Font = new System.Drawing.Font("Coolvetica", 14.25F);
-            this.btnAttività.Location = new System.Drawing.Point(637, 484);
-            this.btnAttività.Name = "btnAttività";
-            this.btnAttività.Size = new System.Drawing.Size(117, 61);
-            this.btnAttività.TabIndex = 231;
-            this.btnAttività.Text = "✨Gestisci Attività";
-            this.btnAttività.UseVisualStyleBackColor = true;
-            this.btnAttività.Click += new System.EventHandler(this.btnAttività_Click);
             // 
             // lblNumRecordTrovati
             // 
@@ -482,7 +469,6 @@
         private System.Windows.Forms.Button btnAnnulla;
         private System.Windows.Forms.Button btnAggiungi;
         private System.Windows.Forms.Label lblTitolo;
-        private System.Windows.Forms.Button btnAttività;
         private System.Windows.Forms.NumericUpDown nudPrezzo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

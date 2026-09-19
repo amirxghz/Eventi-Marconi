@@ -214,6 +214,7 @@ namespace EsLab_Eventi_Ghouzlani
                 chbRappreIstituto.Checked = _utenteSelezionato.RappresentanteIstituto;
                 if (!string.IsNullOrEmpty(_utenteSelezionato.ClasseID))
                     cbClasse.SelectedValue = _utenteSelezionato.ClasseID;
+                tbMatricola.Text = _utenteSelezionato.Matricola;
             }
         }
 
@@ -335,6 +336,12 @@ namespace EsLab_Eventi_Ghouzlani
                 matricola += numero.ToString();
             }
             return matricola;
+        }
+
+        private void btnClasse_Click(object sender, EventArgs e)
+        {
+            FrmClassi frmClassi = new FrmClassi();
+            frmClassi.Show();
         }
     }
 }

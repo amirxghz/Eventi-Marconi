@@ -86,8 +86,10 @@ namespace EsLab_Eventi_Ghouzlani
                     MessageBox.Show("Username già in uso, scegline un altro.", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
+                    this.Cursor = Cursors.WaitCursor;
                     nuovoUtente.Matricola = GeneraMatricola();
                     long id = ClsUtenteBL.Create(ref Program.conn, nuovoUtente, out errore);
+                    this.Cursor = Cursors.Default;
 
                     if (!string.IsNullOrEmpty(errore) || id <= 0)
                         MessageBox.Show("Errore durante la registrazione: " + errore, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -148,8 +150,10 @@ namespace EsLab_Eventi_Ghouzlani
                 MessageBox.Show("Inserisci username e password.", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
+                this.Cursor = Cursors.WaitCursor;
                 string errore;
                 ClsUtente utente = ClsUtenteBL.Login(ref Program.conn, username, password, out errore);
+                this.Cursor = Cursors.Default;
 
                 if (!string.IsNullOrEmpty(errore))
                     MessageBox.Show(errore, "Accesso negato", MessageBoxButtons.OK, MessageBoxIcon.Error);

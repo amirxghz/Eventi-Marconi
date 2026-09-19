@@ -66,6 +66,10 @@
             this.btnVisualizza = new System.Windows.Forms.Button();
             this.btnElimina = new System.Windows.Forms.Button();
             this.btnModifica = new System.Windows.Forms.Button();
+            this.tbMatricola = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnClasse = new System.Windows.Forms.Button();
             this.pnlDetails.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -73,6 +77,10 @@
             // 
             // pnlDetails
             // 
+            this.pnlDetails.Controls.Add(this.btnClasse);
+            this.pnlDetails.Controls.Add(this.tbMatricola);
+            this.pnlDetails.Controls.Add(this.label11);
+            this.pnlDetails.Controls.Add(this.label12);
             this.pnlDetails.Controls.Add(this.label9);
             this.pnlDetails.Controls.Add(this.label10);
             this.pnlDetails.Controls.Add(this.cbClasse);
@@ -129,7 +137,7 @@
             this.cbClasse.FormattingEnabled = true;
             this.cbClasse.Location = new System.Drawing.Point(53, 265);
             this.cbClasse.Name = "cbClasse";
-            this.cbClasse.Size = new System.Drawing.Size(401, 30);
+            this.cbClasse.Size = new System.Drawing.Size(364, 30);
             this.cbClasse.TabIndex = 3;
             // 
             // label8
@@ -337,9 +345,9 @@
             // btnAnnulla
             // 
             this.btnAnnulla.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnulla.Location = new System.Drawing.Point(322, 576);
+            this.btnAnnulla.Location = new System.Drawing.Point(327, 639);
             this.btnAnnulla.Name = "btnAnnulla";
-            this.btnAnnulla.Size = new System.Drawing.Size(117, 31);
+            this.btnAnnulla.Size = new System.Drawing.Size(106, 31);
             this.btnAnnulla.TabIndex = 225;
             this.btnAnnulla.Text = "↩️ Annulla";
             this.btnAnnulla.UseVisualStyleBackColor = true;
@@ -348,9 +356,9 @@
             // btnAggiungi
             // 
             this.btnAggiungi.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAggiungi.Location = new System.Drawing.Point(25, 573);
+            this.btnAggiungi.Location = new System.Drawing.Point(30, 636);
             this.btnAggiungi.Name = "btnAggiungi";
-            this.btnAggiungi.Size = new System.Drawing.Size(273, 36);
+            this.btnAggiungi.Size = new System.Drawing.Size(262, 36);
             this.btnAggiungi.TabIndex = 6;
             this.btnAggiungi.Text = "➕Aggiungi";
             this.btnAggiungi.UseVisualStyleBackColor = true;
@@ -491,6 +499,50 @@
             this.btnModifica.UseVisualStyleBackColor = true;
             this.btnModifica.Click += new System.EventHandler(this.btnModifica_Click);
             // 
+            // tbMatricola
+            // 
+            this.tbMatricola.Enabled = false;
+            this.tbMatricola.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMatricola.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.tbMatricola.Location = new System.Drawing.Point(53, 597);
+            this.tbMatricola.Name = "tbMatricola";
+            this.tbMatricola.Size = new System.Drawing.Size(401, 33);
+            this.tbMatricola.TabIndex = 302;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Coolvetica", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(21, 600);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(34, 25);
+            this.label11.TabIndex = 304;
+            this.label11.Text = "🪪";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Coolvetica", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Gray;
+            this.label12.Location = new System.Drawing.Point(26, 571);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(93, 23);
+            this.label12.TabIndex = 303;
+            this.label12.Text = "Matricola*";
+            // 
+            // btnClasse
+            // 
+            this.btnClasse.Font = new System.Drawing.Font("Coolvetica", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClasse.Location = new System.Drawing.Point(423, 266);
+            this.btnClasse.Name = "btnClasse";
+            this.btnClasse.Size = new System.Drawing.Size(30, 30);
+            this.btnClasse.TabIndex = 305;
+            this.btnClasse.Text = "➕";
+            this.btnClasse.UseVisualStyleBackColor = true;
+            this.btnClasse.Click += new System.EventHandler(this.btnClasse_Click);
+            // 
             // FrmUtenti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -553,5 +605,9 @@
         private System.Windows.Forms.Button btnModifica;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.TextBox tbMatricola;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnClasse;
     }
 }

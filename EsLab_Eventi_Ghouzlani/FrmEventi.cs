@@ -269,11 +269,6 @@ namespace EsLab_Eventi_Ghouzlani
                 PopolaListView(risultato);
             }
         }
-
-        private void btnAttività_Click(object sender, EventArgs e)
-        {
-            FrmAttivita frmAttivita = new FrmAttivita();
-            frmAttivita.ShowDialog();
-        }
+        
     }
 }

@@ -57,6 +57,7 @@
             this.btnVisualizza = new System.Windows.Forms.Button();
             this.btnElimina = new System.Windows.Forms.Button();
             this.btnModifica = new System.Windows.Forms.Button();
+            this.btnIndirizzo = new System.Windows.Forms.Button();
             this.pnlDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAnno)).BeginInit();
             this.panel2.SuspendLayout();
@@ -64,6 +65,7 @@
             // 
             // pnlDetails
             // 
+            this.pnlDetails.Controls.Add(this.btnIndirizzo);
             this.pnlDetails.Controls.Add(this.cbIndirizzo);
             this.pnlDetails.Controls.Add(this.label9);
             this.pnlDetails.Controls.Add(this.label10);
@@ -92,7 +94,7 @@
             this.cbIndirizzo.Location = new System.Drawing.Point(58, 272);
             this.cbIndirizzo.MaxDropDownItems = 3;
             this.cbIndirizzo.Name = "cbIndirizzo";
-            this.cbIndirizzo.Size = new System.Drawing.Size(167, 30);
+            this.cbIndirizzo.Size = new System.Drawing.Size(140, 30);
             this.cbIndirizzo.TabIndex = 305;
             // 
             // label9
@@ -391,6 +393,17 @@
             this.btnModifica.UseVisualStyleBackColor = true;
             this.btnModifica.Click += new System.EventHandler(this.btnModifica_Click);
             // 
+            // btnIndirizzo
+            // 
+            this.btnIndirizzo.Font = new System.Drawing.Font("Coolvetica", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIndirizzo.Location = new System.Drawing.Point(204, 272);
+            this.btnIndirizzo.Name = "btnIndirizzo";
+            this.btnIndirizzo.Size = new System.Drawing.Size(21, 31);
+            this.btnIndirizzo.TabIndex = 306;
+            this.btnIndirizzo.Text = "➕";
+            this.btnIndirizzo.UseVisualStyleBackColor = true;
+            this.btnIndirizzo.Click += new System.EventHandler(this.btnIndirizzo_Click);
+            // 
             // FrmClassi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -443,5 +456,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbIndirizzo;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Button btnIndirizzo;
     }
 }
