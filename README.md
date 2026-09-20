@@ -1,9 +1,11 @@
-Credenziali
+# 🔐 Credenziali
 
-Admin: 
-username: admin
-password: admin123
+## 👨‍💼 Admin
 
-Studente:
-username: amirxghz
-password: Amir0246!gh
+* **Username:** `admin`
+* **Password:** `admin123`
+
+## 🎓 Studente
+
+* **Username:** `amirxghz`
+* **Password:** `Amir0246!gh`
