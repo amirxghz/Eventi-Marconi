@@ -13,10 +13,13 @@ namespace EsLab_Eventi_Ghouzlani
     public partial class FrmIscrizioni : Form
     {
         private List<ClsEvento> _eventi = new List<ClsEvento>();
-        private List<ClsUtente> _iscrizioniEventoCorrente =new List<ClsUtente>();
-        private List<List<ClsAderire>> _adesioniEventoCorrente =new List<List<ClsAderire>>();
+        private List<ClsUtente> _iscrizioniEventoCorrente = new List<ClsUtente>();
+        private List<List<ClsAderire>> _adesioniEventoCorrente = new List<List<ClsAderire>>();
 
         private bool _aggiornamentoInterno = false;
+
+        private ColumnHeader _colonnaPagato = null;
+        private int _larghezzaColonnaPagato = 72;
 
         public FrmIscrizioni()
         {
@@ -25,6 +28,14 @@ namespace EsLab_Eventi_Ghouzlani
 
         private void FrmIscrizioni_Load(object sender, EventArgs e)
         {
+            foreach (ColumnHeader ch in lvIscrizioni.Columns)
+            {
+                if (ch.Text == "Pagato")
+                    _colonnaPagato = ch;
+            }
+            if (_colonnaPagato != null)
+                _larghezzaColonnaPagato = _colonnaPagato.Width;
+
             CaricaEventi();
         }
 
@@ -66,12 +77,18 @@ namespace EsLab_Eventi_Ghouzlani
                 _iscrizioniEventoCorrente.Clear();
                 _adesioniEventoCorrente.Clear();
                 chxbPagato.Enabled = false;
+                AggiornaVisibilitaColonnaPagato(true);
             }
             else
             {
-                ClsEvento evento =(ClsEvento)lvEventi.SelectedItems[0].Tag;
-                CaricaIscrizioni(evento.ID1);
+                ClsEvento evento = (ClsEvento)lvEventi.SelectedItems[0].Tag;
                 rtbDescrizione.Text = evento.Descrizione;
+
+                bool eventoGratuito = evento.Prezzo <= 0;
+                AggiornaVisibilitaColonnaPagato(!eventoGratuito);
+                chxbPagato.Visible = !eventoGratuito;
+
+                CaricaIscrizioni(evento);
             }
         }
 
@@ -192,115 +209,161 @@ namespace EsLab_Eventi_Ghouzlani
             }
         }
 
-        private void lvIscrizioni_SelectedIndexChanged(object sender,EventArgs e)
+       
+
+        private void AggiornaVisibilitaColonnaPagato(bool visibile)
         {
-            if (lvIscrizioni.SelectedItems.Count == 0)
-                chxbPagato.Enabled = false;
+            if (_colonnaPagato == null)
+                return;
+
+            if (visibile)
+                _colonnaPagato.Width = _larghezzaColonnaPagato;
+            else
+                _colonnaPagato.Width = 0;
+        }
+
+        private void CaricaIscrizioni(ClsEvento evento)
+        {
+            string errore;
+
+            List<ClsAttivita> attivitaEvento = ClsAttivitaBL.GetByEventoID(ref Program.conn, evento.ID1, out errore);
+
+            if (!string.IsNullOrEmpty(errore))
+            {
+                MessageBox.Show("Errore nel caricamento attività: " + errore, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
-                ClsUtente studente =(ClsUtente)lvIscrizioni.SelectedItems[0].Tag;
+                _iscrizioniEventoCorrente.Clear();
+                _adesioniEventoCorrente.Clear();
 
-                int indiceStudente = -1;
+                bool eventoGratuito = evento.Prezzo <= 0;
+
                 int i = 0;
 
-                while (i < _iscrizioniEventoCorrente.Count &&indiceStudente == -1)
+                while (i < attivitaEvento.Count)
                 {
-                    if (_iscrizioniEventoCorrente[i].ID ==studente.ID)
-                        indiceStudente = i;
-                    i++;
-                }
+                    List<ClsAderire> adesioni = ClsAderireBL.GetByAttivitaID(ref Program.conn, attivitaEvento[i].ID1, out errore);
 
-                if (indiceStudente >= 0)
-                {
-                    List<ClsAderire> adesioni =_adesioniEventoCorrente[indiceStudente];
-
-                    bool haPagato = true;
-
-                    int j = 0;
-
-                    while (j < adesioni.Count)
+                    if (string.IsNullOrEmpty(errore))
                     {
-                        if (!adesioni[j].Pagato)
-                            haPagato = false;
-                        j++;
-                    }
+                        int j = 0;
 
-                    _aggiornamentoInterno = true;
-
-                    chxbPagato.Enabled = true;
-                    if (adesioni.Count > 0 && haPagato)
-                        chxbPagato.Checked = true;
-                    else
-                        chxbPagato.Checked = false;
-
-                    _aggiornamentoInterno = false;
-                }
-            }
-        }
-
-        private void chxbPagato_CheckedChanged(object sender,EventArgs e)
-        {
-            if (!_aggiornamentoInterno &&lvIscrizioni.SelectedItems.Count > 0)
-            {
-                ClsUtente studente = (ClsUtente)lvIscrizioni.SelectedItems[0].Tag;
-
-                int studenteSelezionato = studente.ID;
-
-                int indiceStudente = -1;
-                int i = 0;
-
-                while (i < _iscrizioniEventoCorrente.Count && indiceStudente == -1)
-                {
-                    if (_iscrizioniEventoCorrente[i].ID == studenteSelezionato)
-                        indiceStudente = i;
-                    i++;
-                }
-
-                if (indiceStudente >= 0)
-                {
-                    List<ClsAderire> adesioni = _adesioniEventoCorrente[indiceStudente];
-
-                    string errore = "";
-
-                    int j = 0;
-
-                    while (j < adesioni.Count)
-                    {
-                        ClsAderire ad = adesioni[j];
-                        ad.Pagato = chxbPagato.Checked;
-                        ClsAderireBL.Update(ref Program.conn,ad.IDaderire,ad,out errore);
-
-                        j++;
-                    }
-
-                    if (!string.IsNullOrEmpty(errore))
-                        MessageBox.Show("Errore: " + errore,"Errore",MessageBoxButtons.OK,MessageBoxIcon.Error);
-
-                    if (lvEventi.SelectedItems.Count > 0)
-                    {
-                        ClsEvento evento =(ClsEvento)lvEventi.SelectedItems[0].Tag;
-
-                        CaricaIscrizioni(evento.ID1);
-
-                        int k = 0;
-
-                        while (k < lvIscrizioni.Items.Count)
+                        while (j < adesioni.Count)
                         {
-                            ClsUtente studenteLista =(ClsUtente)lvIscrizioni.Items[k].Tag;
-                            if (studenteLista.ID ==studenteSelezionato)
-                            {
-                                lvIscrizioni.Items[k].Selected = true;
-                                lvIscrizioni.Items[k].EnsureVisible();
+                            ClsAderire ad = adesioni[j];
 
-                                k = lvIscrizioni.Items.Count;
+                            if (eventoGratuito && !ad.Pagato)
+                            {
+                                ad.Pagato = true;
+                                ClsAderireBL.Update(ref Program.conn, ad.IDaderire, ad, out errore);
                             }
-                            else
-                                k++;
+
+                            if (ad.Iscritto && ad.StudenteID > 0)
+                            {
+                                int indiceStudente = -1;
+                                int k = 0;
+
+                                while (k < _iscrizioniEventoCorrente.Count && indiceStudente == -1)
+                                {
+                                    if (_iscrizioniEventoCorrente[k].ID == ad.StudenteID)
+                                        indiceStudente = k;
+                                    k++;
+                                }
+
+                                if (indiceStudente == -1)
+                                {
+                                    ClsUtente studente = ClsUtenteBL.GetByID(ref Program.conn, ad.StudenteID, out errore);
+
+                                    if (studente != null)
+                                    {
+                                        _iscrizioniEventoCorrente.Add(studente);
+                                        _adesioniEventoCorrente.Add(new List<ClsAderire>());
+                                        indiceStudente = _iscrizioniEventoCorrente.Count - 1;
+                                    }
+                                }
+                                if (indiceStudente >= 0)
+                                    _adesioniEventoCorrente[indiceStudente].Add(ad);
+                            }
+
+                            j++;
                         }
                     }
+
+                    i++;
                 }
+                PopolaListViewIscrizioni(_iscrizioniEventoCorrente);
             }
         }
+        private void chxbPagato_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!_aggiornamentoInterno && lvIscrizioni.SelectedItems.Count > 0 && lvEventi.SelectedItems.Count > 0)
+            {
+                ClsEvento evento = (ClsEvento)lvEventi.SelectedItems[0].Tag;
+
+                List<int> studentiSelezionati = new List<int>();
+                int i = 0;
+
+                while (i < lvIscrizioni.SelectedItems.Count)
+                {
+                    ClsUtente studente = (ClsUtente)lvIscrizioni.SelectedItems[i].Tag;
+                    studentiSelezionati.Add(studente.ID);
+                    i++;
+                }
+
+                string errore = "";
+
+                int s = 0;
+                while (s < studentiSelezionati.Count)
+                {
+                    int studenteCorrente = studentiSelezionati[s];
+
+                    int indiceStudente = -1;
+                    int j = 0;
+
+                    while (j < _iscrizioniEventoCorrente.Count && indiceStudente == -1)
+                    {
+                        if (_iscrizioniEventoCorrente[j].ID == studenteCorrente)
+                            indiceStudente = j;
+                        j++;
+                    }
+
+                    if (indiceStudente >= 0)
+                    {
+                        List<ClsAderire> adesioni = _adesioniEventoCorrente[indiceStudente];
+
+                        int k = 0;
+                        while (k < adesioni.Count)
+                        {
+                            ClsAderire ad = adesioni[k];
+                            ad.Pagato = chxbPagato.Checked;
+                            ClsAderireBL.Update(ref Program.conn, ad.IDaderire, ad, out errore);
+                            k++;
+                        }
+                    }
+
+                    s++;
+                }
+
+                if (!string.IsNullOrEmpty(errore))
+                    MessageBox.Show("Errore: " + errore, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                CaricaIscrizioni(evento);
+
+                int k2 = 0;
+                while (k2 < lvIscrizioni.Items.Count)
+                {
+                    ClsUtente studenteLista = (ClsUtente)lvIscrizioni.Items[k2].Tag;
+                    if (studentiSelezionati.Contains(studenteLista.ID))
+                        lvIscrizioni.Items[k2].Selected = true;
+                    k2++;
+                }
+
+                if (lvIscrizioni.SelectedItems.Count > 0)
+                    lvIscrizioni.SelectedItems[0].EnsureVisible();
+            }
+        }
+
 
         private void tbFiltroEventi_TextChanged(object sender,EventArgs e)
         {
@@ -328,5 +391,57 @@ namespace EsLab_Eventi_Ghouzlani
                 PopolaListViewIscrizioni(risultato);
             }
         }
+
+        private void lvIscrizioni_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvIscrizioni.SelectedItems.Count == 0)
+                chxbPagato.Enabled = false;
+            else
+            {
+                bool tuttiPagati = true;
+                int i = 0;
+
+                while (i < lvIscrizioni.SelectedItems.Count && tuttiPagati)
+                {
+                    ClsUtente studente = (ClsUtente)lvIscrizioni.SelectedItems[i].Tag;
+
+                    int indiceStudente = -1;
+                    int j = 0;
+
+                    while (j < _iscrizioniEventoCorrente.Count && indiceStudente == -1)
+                    {
+                        if (_iscrizioniEventoCorrente[j].ID == studente.ID)
+                            indiceStudente = j;
+                        j++;
+                    }
+
+                    if (indiceStudente >= 0)
+                    {
+                        List<ClsAderire> adesioni = _adesioniEventoCorrente[indiceStudente];
+
+                        bool haPagato = adesioni.Count > 0;
+                        int k = 0;
+
+                        while (k < adesioni.Count)
+                        {
+                            if (!adesioni[k].Pagato)
+                                haPagato = false;
+                            k++;
+                        }
+
+                        if (!haPagato)
+                            tuttiPagati = false;
+                    }
+
+                    i++;
+                }
+
+                _aggiornamentoInterno = true;
+                chxbPagato.Enabled = true;
+                chxbPagato.Checked = tuttiPagati;
+                _aggiornamentoInterno = false;
+            }
+        }
+
     }
 }
