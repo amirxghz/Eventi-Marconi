@@ -50,7 +50,7 @@ namespace EsLab_Eventi_Ghouzlani
                 cmd.Parameters.AddWithValue("@pagato", aderire.Pagato);
                 cmd.Parameters.AddWithValue("@partecipato", aderire.Partecipato);
                 cmd.Parameters.AddWithValue("@attivitaID", aderire.AttivitaID);
-                cmd.Parameters.AddWithValue("@classeID", (object)aderire.ClasseID ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@classeID", string.IsNullOrEmpty(aderire.ClasseID) ? (object)DBNull.Value : aderire.ClasseID);
                 cmd.Parameters.AddWithValue("@studenteID", aderire.StudenteID > 0 ? (object)aderire.StudenteID : DBNull.Value);
                 cmd.ExecuteNonQuery();
                 id = cmd.LastInsertedId;
@@ -106,7 +106,7 @@ namespace EsLab_Eventi_Ghouzlani
 
             return adesioni;
         }
-        
+
         internal static ClsAderire GetByAttivitaIDeStudenteID(ref MySqlConnection conn, int attivitaID, int studenteID, out string errore)
         {
             ClsAderire aderire = null;
@@ -141,7 +141,7 @@ namespace EsLab_Eventi_Ghouzlani
 
             return aderire;
         }
-        
+
         internal static List<ClsAderire> GetByCodicePartecipazione(ref MySqlConnection conn, string codice, out string errore)
         {
             List<ClsAderire> adesioni = new List<ClsAderire>();
@@ -206,7 +206,7 @@ namespace EsLab_Eventi_Ghouzlani
                     cmd.Parameters.AddWithValue("@pagato", aderire.Pagato);
                     cmd.Parameters.AddWithValue("@partecipato", aderire.Partecipato);
                     cmd.Parameters.AddWithValue("@attivitaID", aderire.AttivitaID);
-                    cmd.Parameters.AddWithValue("@classeID", (object)aderire.ClasseID ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@classeID", string.IsNullOrEmpty(aderire.ClasseID) ? (object)DBNull.Value : aderire.ClasseID);
                     cmd.Parameters.AddWithValue("@studenteID", aderire.StudenteID > 0 ? (object)aderire.StudenteID : DBNull.Value);
                     esito = cmd.ExecuteNonQuery();
 
@@ -275,7 +275,7 @@ namespace EsLab_Eventi_Ghouzlani
 
             return count;
         }
-        
+
         #endregion
     }
 }

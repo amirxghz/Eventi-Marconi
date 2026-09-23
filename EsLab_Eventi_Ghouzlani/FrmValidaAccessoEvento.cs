@@ -58,11 +58,25 @@ namespace EsLab_Eventi_Ghouzlani
                 else
                 {
                     bool accessoConsentito = true;
+                    
+                    bool eventoGratuito = false;
+                    List<ClsAttivita> attivita = ClsAttivitaBL.GetAll(ref Program.conn, out errore);
+                    ClsAttivita attivitaAderita = null;
 
-                    bool tuttiPagati = adesioni.All(a => a.Pagato);
+                    if (attivita != null)
+                        attivitaAderita = attivita.FirstOrDefault(a => a.ID1 == adesioni[0].AttivitaID);
+
+                    if (attivitaAderita != null)
+                    {
+                        ClsEvento evento = ClsEventoBL.GetByID(ref Program.conn, attivitaAderita.EventoID, out errore);
+                        if (evento != null)
+                            eventoGratuito = evento.Prezzo <= 0;
+                    }
+
+                    bool tuttiPagati = eventoGratuito || adesioni.All(a => a.Pagato);
                     if (!tuttiPagati)
                     {
-                        DialogResult dr = MessageBox.Show("Lo studente non risulta aver pagato.\nVuoi segnarlo come pagato adesso e consentire l'accesso?","Pagamento mancante", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult dr = MessageBox.Show("Lo studente non risulta aver pagato.\nVuoi segnarlo come pagato adesso e consentire l'accesso?", "Pagamento mancante", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                         if (dr != DialogResult.Yes)
                         {
