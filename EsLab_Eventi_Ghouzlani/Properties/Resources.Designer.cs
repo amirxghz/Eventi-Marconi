@@ -93,6 +93,16 @@ namespace EsLab_Eventi_Ghouzlani.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap locandinaCarica {
+            get {
+                object obj = ResourceManager.GetObject("locandinaCarica", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pfp {
             get {
                 object obj = ResourceManager.GetObject("Pfp", resourceCulture);
